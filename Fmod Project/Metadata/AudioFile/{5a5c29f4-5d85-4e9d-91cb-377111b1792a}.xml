@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5a5c29f4-5d85-4e9d-91cb-377111b1792a}">
+		<property name="assetPath">
+			<value>Udey/Attack/Attack swing 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.30258503401360543</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7258c51c-acdb-40c4-815a-a6c10634965c}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{661ba2e2-0c5a-4691-b10f-30aec147f30e}">
+		<property name="assetPath">
+			<value>Music/LevelMusic/JohnLevelEnemyAmnt3Less.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>27.428571428571427</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7258c51c-acdb-40c4-815a-a6c10634965c}</destination>
+		</relationship>
+	</object>
+</objects>

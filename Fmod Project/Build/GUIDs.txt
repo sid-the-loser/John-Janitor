@@ -1,0 +1,7 @@
+{f4ada762-80d3-4c67-9961-dccfb377fe63} bank:/Master
+{6cb087b6-f1a8-0025-1f28-56314284f8fb} bank:/Master.strings
+{e6791857-ff99-4d01-beb7-0385adfdef89} bus:/
+{b14251a6-324f-43b6-b458-3e1862d76e45} bus:/Reverb
+{75af6d68-3d86-4487-bbce-00fec87a31bd} event:/Music/Music
+{7e205330-3afb-461f-b616-3e92e86a6a3a} parameter:/Number of Enemies
+{241453e6-4ed6-4d39-84a8-06d34e3f7d33} parameter:/health
