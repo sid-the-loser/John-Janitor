@@ -14,7 +14,7 @@ namespace Sid.Scripts.Player
         [SerializeField] private float walkingSpeed = 5.0f;
         [SerializeField] private float sprintingSpeed = 8.0f;
         [SerializeField] private float crouchingSpeed = 3.0f;
-        [SerializeField] private float mouseSensitivity = 0.4f;
+        
         [SerializeField] private float lerpSpeed = 10.0f;
         [SerializeField] private float crouchCameraY = -0.25f;
         [SerializeField] private float crouchColliderHeight = 1.5f;
@@ -38,7 +38,8 @@ namespace Sid.Scripts.Player
         private Rigidbody _playerRigidbody;
 
         private EventInstance _playerWalk; // sound
-
+        
+        public float mouseSensitivity = 0.4f;
         
         private void Start()
         {
