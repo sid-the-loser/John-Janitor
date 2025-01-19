@@ -19,7 +19,7 @@ namespace Main.Scripts.Player
         private Rigidbody heldObjRb; //rigidbody of object which the player has picked up
         private bool canDrop = true; //used to prevent throwing/droping object when rotating
         private int layerNumber; //layer index
-
+        
         //Reference to script that controls mouse movement of player to disable the player looking around when rotating the object
         private PlayerMovement mouseLookScript;
         void Start()
@@ -50,7 +50,7 @@ namespace Main.Scripts.Player
                         }else if (hit.transform.gameObject.CompareTag("canLiftHeavy")) //checks if it is a heavy object like chair, table, etc
                         {
                             //pass in object hit into the PickUpObject function
-                            PickUpObject(hit.transform.gameObject);
+                            PickUpObjectHeavy(hit.transform.gameObject);
                         }
                     }
                 }
@@ -76,16 +76,18 @@ namespace Main.Scripts.Player
             }
         }
 
-        void PickUpObject(GameObject pickUpObj)
+        void PickUpObjectHeavy(GameObject pickUpObj)
         {
             if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
             {
                 heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
+                heldObj.transform.rotation = new Quaternion(0, 0, 0, 0);
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //Gets and stores Rigidbody
                 heldObjRb.isKinematic = true; //sets rigidbody to kinematic
-                heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+                heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+                arm.SetActive(false);
             }
         }
 
@@ -97,12 +99,13 @@ namespace Main.Scripts.Player
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //un parent object
             heldObj = null; //undefine game object
+            arm.SetActive(true);
         }
 
         void MoveObject()
         {
             //keep object position the same as the holdPosition position
-            heldObj.transform.position = holdPos.transform.position;
+            heldObj.transform.position = holdPosHeavy.transform.position;
         }
 
         void RotateObject()
@@ -110,10 +113,10 @@ namespace Main.Scripts.Player
             if (Input.GetKey(KeyCode.R)) //hold R key to rotate, change this to whatever key you want
             {
                 canDrop = false; //make sure throwing can't occur during rotating
-
+                
                 //disable player being able to look around
-                mouseLookScript.mouseSensitivity = 0f;
-
+                mouseLookScript.enabled = false;
+                
                 float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
                 float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
                 //rotate the object depending on mouse X-Y Axis
@@ -123,8 +126,7 @@ namespace Main.Scripts.Player
             else
             {
                 //re-enable player being able to look around
-                //mouseLookScript.verticalSensitivity = originalvalue;
-                //mouseLookScript.lateralSensitivity = originalvalue;
+                mouseLookScript.enabled = true;
                 canDrop = true;
             }
         }
@@ -136,8 +138,10 @@ namespace Main.Scripts.Player
             heldObj.layer = 0;
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
-            heldObjRb.AddForce(transform.forward * throwForce);
+            heldObjRb.velocity = transform.forward * (throwForce * Time.deltaTime);
+                //.AddForce(transform.forward * throwForce);
             heldObj = null;
+            arm.SetActive(true);
         }
 
         void StopClipping() //function only called when dropping/throwing
