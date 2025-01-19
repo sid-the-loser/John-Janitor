@@ -62,10 +62,6 @@ namespace Sid.Scripts.Player
                 // ------------------------------------------------------------------------------------------
                 _crouchKey = KeyCode.C;
             
-            // Newly added since the pause menu is still being worked on.
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
-            
             // INFO: IDK what this is! It's throwing an error
             _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
         }
