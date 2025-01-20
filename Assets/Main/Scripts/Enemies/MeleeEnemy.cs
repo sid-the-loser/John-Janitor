@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class MeleeEnemy : EnemyBase
 {
     private Animator animator;
-    private bool animatorTriggered;
     
     private void Start()
     {
@@ -21,15 +20,17 @@ public class MeleeEnemy : EnemyBase
     {
         if (CurrentState == States.Attack)
         {
-            if (!animatorTriggered)
+
+            if (Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f)
             {
                 animator.SetTrigger("Moving");
-                animatorTriggered = true;
+                TargetPosition = PlayerObject.transform.position;
             }
-
-            TargetPosition = Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f
-                ? PlayerObject.transform.position
-                : transform.position;
+            else
+            {
+                animator.SetTrigger("Idle");
+                TargetPosition = transform.position;
+            }
         }
     }
 }
