@@ -1,7 +1,7 @@
 using System;
-using Sid.Scripts.Common;
 using UnityEngine;
 using FMOD.Studio;
+using Main.Scripts.Common;
 using Sound.Scripts;
 using Sound.Scripts.Sound; //sound
 

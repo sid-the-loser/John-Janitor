@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Sid.Scripts.Common;
+using Main.Scripts.Common;
 using Sid.Scripts.Enemy;
 using Sound.Scripts.Sound;
 using UnityEngine;
@@ -144,37 +144,37 @@ namespace Udey.Scripts
             switch (pickedOption)
             {
                 case "Increase Enemy Health":
-                    GlobalVariables.MaxHealth *= 1.10f;
+                    GlobalVariables.EnemyMaxHealth *= 1.10f;
                     break;
                 case "Increase Enemy Damage":
-                    GlobalVariables.BaseDamage *= 1.10f;
+                    GlobalVariables.EnemyBaseDamage *= 1.10f;
                     break;
                 case "Increase Enemy Health Regeneration":
-                    GlobalVariables.BaseHpRegen *= 1.05f;
+                    GlobalVariables.EnemyBaseHpRegen *= 1.05f;
                     break;
                 case "Increase Enemy Attack Speed":
-                    GlobalVariables.AttSpeed *= 1.05f;
+                    GlobalVariables.EnemyAttSpeed *= 1.05f;
                     break;
                 case "Increase Enemy Movement Speed":
-                    GlobalVariables.MoveSpeed *= 1.10f;
+                    GlobalVariables.EnemyMoveSpeed *= 1.10f;
                     break;
                 case "Increase Enemy Attack Range":
-                    GlobalVariables.AttRange *= 1.15f;
+                    GlobalVariables.EnemyAttRange *= 1.15f;
                     break;
                 case "Not Added Yet":
                     Debug.Log("Not Added Yet");
                     break;
                 case "Increase Enemy Defence":
-                    GlobalVariables.BaseDefense *= 1.10f;
+                    GlobalVariables.EnemyBaseDefense *= 1.10f;
                     break;
                 case "Increase Enemy Dodge Chance":
-                    GlobalVariables.DodgeChance += (GlobalVariables.DodgeChance*0.05f);
+                    GlobalVariables.EnemyDodgeChance += (GlobalVariables.EnemyDodgeChance*0.05f);
                     break;
                 case "Increase Enemy Critical Chance":
-                    GlobalVariables.CritChance += (GlobalVariables.CritChance*0.05f);
+                    GlobalVariables.EnemyCritChance += (GlobalVariables.EnemyCritChance*0.05f);
                     break;
                 case "Increase Enemy Critical Damage":
-                    GlobalVariables.CritDamage += (GlobalVariables.CritDamage*0.02f);
+                    GlobalVariables.EnemyCritDamage += (GlobalVariables.EnemyCritDamage*0.02f);
                     break;
             }
         }

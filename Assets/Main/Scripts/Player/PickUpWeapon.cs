@@ -67,7 +67,7 @@ namespace Main.Scripts.Player
             if (heldObj != null) //if player is already holding object
             {
                 MoveObject(); //constantly moves object position at holdPos
-                RotateObject();
+                // RotateObject();
                 if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //left click is used to throw
                 {
                     StopClipping();
@@ -86,7 +86,7 @@ namespace Main.Scripts.Player
                 heldObjRb.isKinematic = true; //sets rigidbody to kinematic
                 heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
-                Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+                Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), true);
                 arm.SetActive(false);
             }
         }
@@ -94,7 +94,7 @@ namespace Main.Scripts.Player
         void DropObject()
         {
             //re-enable collision with player
-            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), false);
             heldObj.layer = 0; //object assigned back to default layer
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //un parent object
@@ -108,38 +108,38 @@ namespace Main.Scripts.Player
             heldObj.transform.position = holdPosHeavy.transform.position;
         }
 
-        void RotateObject()
-        {
-            if (Input.GetKey(KeyCode.R)) //hold R key to rotate, change this to whatever key you want
-            {
-                canDrop = false; //make sure throwing can't occur during rotating
-                
-                //disable player being able to look around
-                mouseLookScript.enabled = false;
-                
-                float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
-                float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
-                //rotate the object depending on mouse X-Y Axis
-                heldObj.transform.Rotate(Vector3.down, XaxisRotation);
-                heldObj.transform.Rotate(Vector3.right, YaxisRotation);
-            }
-            else
-            {
-                //re-enable player being able to look around
-                mouseLookScript.enabled = true;
-                canDrop = true;
-            }
-        }
+        // void RotateObject()
+        // {
+        //     if (Input.GetKey(KeyCode.R)) //hold R key to rotate, change this to whatever key you want
+        //     {
+        //         canDrop = false; //make sure throwing can't occur during rotating
+        //         
+        //         //disable player being able to look around
+        //         mouseLookScript.enabled = false;
+        //         
+        //         float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
+        //         float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
+        //         //rotate the object depending on mouse X-Y Axis
+        //         heldObj.transform.Rotate(Vector3.down, XaxisRotation);
+        //         heldObj.transform.Rotate(Vector3.right, YaxisRotation);
+        //     }
+        //     else
+        //     {
+        //         //re-enable player being able to look around
+        //         mouseLookScript.enabled = true;
+        //         canDrop = true;
+        //     }
+        // }
 
         void ThrowObject()
         {
             //same as drop function, but add force to object before undefining it
-            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
             heldObj.layer = 0;
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
             heldObjRb.velocity = transform.forward * (throwForce * Time.deltaTime);
                 //.AddForce(transform.forward * throwForce);
+            Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), false);
             heldObj = null;
             arm.SetActive(true);
         }
@@ -158,7 +158,7 @@ namespace Main.Scripts.Player
                 //change object position to camera position 
                 heldObj.transform.position =
                     transform.position +
-                    new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
+                    new Vector3(0f, -1f, 0f); //offset slightly downward to stop object dropping above player 
                 //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
             }
         }
