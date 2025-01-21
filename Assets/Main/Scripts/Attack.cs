@@ -1,6 +1,10 @@
 using System.Collections;
+using FMOD;
+using Main.Scripts;
+using Main.Scripts.Player;
 using Sound.Scripts.Sound;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 
 namespace Udey.Scripts
@@ -65,6 +69,7 @@ namespace Udey.Scripts
         {
             yield return new WaitForSeconds(0.2f);
             Destroy(_otherHit.transform.gameObject);
+            Combo.ComboIncrease();
             MusicChangeTrigger.enemyCounter--;
         }
     }

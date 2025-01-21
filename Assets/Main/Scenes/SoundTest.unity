@@ -6479,7 +6479,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3159294460312658011, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 814734544}
+    - targetCorrespondingSourceObject: {fileID: 3159294460312658011, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 814734545}
   m_SourcePrefab: {fileID: 100100000, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
 --- !u!1 &801886237
 GameObject:
@@ -6821,7 +6827,7 @@ MonoBehaviour:
   crosshair1: {fileID: 556842208}
   crosshair2: {fileID: 600423027}
   objTransform: {fileID: 719661396}
-  cameraTrans: {fileID: 749205426}
+  cameraTrans: {fileID: 0}
   playerTrans: {fileID: 814734543}
   interactable: 1
   pickedup: 0
@@ -11958,6 +11964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603678227}
   - component: {fileID: 1603678228}
+  - component: {fileID: 1603678229}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -12001,6 +12008,19 @@ MonoBehaviour:
   - {fileID: 266498542}
   - {fileID: 266498540}
   - {fileID: 266498538}
+--- !u!114 &1603678229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603678226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6cb0a5c8f1cbc49be61175d636e38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 5
 --- !u!65 &1612045784
 BoxCollider:
   m_ObjectHideFlags: 0
