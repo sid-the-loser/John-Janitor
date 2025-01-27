@@ -1,7 +1,7 @@
 using System;
-using Sid.Scripts.Common;
 using UnityEngine;
 using FMOD.Studio;
+using Main.Scripts.Common;
 using Sound.Scripts;
 using Sound.Scripts.Sound; //sound
 
@@ -19,7 +19,7 @@ namespace Sid.Scripts.Player
         [SerializeField] private float crouchCameraY = -0.25f;
         [SerializeField] private float crouchColliderHeight = 1.5f;
         [SerializeField] private float crouchColliderY = -0.25f;
-        // [SerializeField] private float gravity = -9.8f; // No need since we using a rigidbody
+        // [SerializeField] private float gravity = -9.8f; // No need since we are using a rigidbody
         [SerializeField] private LayerMask groundMask;
         
         private float _currentSpeed = 5.0f;

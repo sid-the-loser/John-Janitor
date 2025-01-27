@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using FMOD.Studio;
-using Sid.Scripts.Common;
+using Main.Scripts.Common;
 using Sid.Scripts.Player;
 using Sound.Scripts.Sound;
 using UnityEngine;
@@ -78,7 +78,7 @@ namespace Sid.Scripts.Enemy
 
         public static void UpdateStats()
         {
-            enemySpeed = GlobalVariables.MoveSpeed;
+            enemySpeed = GlobalVariables.EnemyMoveSpeed;
         }
     }
 }

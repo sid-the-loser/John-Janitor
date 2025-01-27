@@ -1,5 +1,5 @@
 using System.Collections;
-using Sid.Scripts.Common;
+using Main.Scripts.Common;
 using Sound.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.SceneManagement;
