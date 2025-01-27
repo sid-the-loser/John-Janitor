@@ -1,6 +1,8 @@
-using Sid.Scripts.Common;
+using System.Collections;
+using Main.Scripts.Common;
 using Sound.Scripts.Sound;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinCon : MonoBehaviour
 {
@@ -18,5 +20,12 @@ public class WinCon : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         winScreen.SetActive(true);
+        StartCoroutine(ChangeDaScene(5));
+    }
+
+    private IEnumerator ChangeDaScene(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(0);
     }
 }

@@ -8,22 +8,28 @@ using Random = UnityEngine.Random;
 
 public class MeleeEnemy : EnemyBase
 {
+    private Animator animator;
+    
     private void Start()
     {
+        animator = GetComponent<Animator>();
         OnStart();
     }
 
     private void Update()
     {
-        switch (CurrentState)
+        if (CurrentState == States.Attack)
         {
-            case States.Attack:
-                TargetPosition = Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f ? PlayerObject.transform.position : transform.position;
-                break;
-            case States.Wander:
+
+            if (Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f)
             {
-                TargetPosition = transform.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
-                break;
+                animator.SetTrigger("Moving");
+                TargetPosition = PlayerObject.transform.position;
+            }
+            else
+            {
+                animator.SetTrigger("Idle");
+                TargetPosition = transform.position;
             }
         }
     }

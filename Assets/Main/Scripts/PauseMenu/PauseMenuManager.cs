@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Sid.Scripts.Common;
+using Main.Scripts.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

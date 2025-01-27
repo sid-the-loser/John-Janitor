@@ -17,6 +17,8 @@ public class EnemyBase : MonoBehaviour
     protected NavMeshAgent Agent;
     
     protected Vector3 TargetPosition;
+
+    private Vector3 pastTergetPOsition;
     
     protected GameObject PlayerObject;
     
@@ -41,7 +43,11 @@ public class EnemyBase : MonoBehaviour
                 AttackTriggered = true;
             }
         }
-        
-        Agent.SetDestination(TargetPosition);
+
+        if (pastTergetPOsition != TargetPosition)
+        {
+            Agent.SetDestination(TargetPosition);
+            pastTergetPOsition = TargetPosition;
+        }
     }
 }
