@@ -1,4 +1,4 @@
-using Sid.Scripts.Common;
+using Main.Scripts.Common;
 using Sound.Scripts.Sound;
 using UnityEngine;
 
