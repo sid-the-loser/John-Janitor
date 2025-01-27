@@ -92,3 +92,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# (added) Unwanted Fmod Project Directories
+/Fmod Project/.cache
+/Fmod Project/.unsaved
+/Fmod Project/.user
+
+# (added) Removing Fmod Log
+fmod_editor.log
