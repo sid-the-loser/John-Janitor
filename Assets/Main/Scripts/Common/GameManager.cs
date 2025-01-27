@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Main.Scripts.Common;
 using Sid.Scripts.Enemy;
 using Sound.Scripts.Sound;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Udey.Scripts
+namespace Main.Scripts.Common
 {
     public class GameManager : MonoBehaviour
     {

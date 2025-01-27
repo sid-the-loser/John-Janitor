@@ -13,7 +13,7 @@ namespace Udey.Scripts
     public class Attack : MonoBehaviour
     {
         [SerializeField] private GameObject image;
-        [SerializeField] private float meleeCoolDown = 2f;
+        [SerializeField] private float meleeCoolDown = 0.75f;
         [SerializeField] private float meleeRange = 5f;
 
         private bool meleeOnCooldown = false;
