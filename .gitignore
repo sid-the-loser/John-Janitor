@@ -98,5 +98,8 @@ crashlytics-build.properties
 /Fmod Project/.unsaved
 /Fmod Project/.user
 
+# (added) Removing Fmod plugin cache
+/Assets/Main/Resources/Plugins/FMOD/Cache
+
 # (added) Removing Fmod Log
 fmod_editor.log
