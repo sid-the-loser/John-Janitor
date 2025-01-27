@@ -88,6 +88,8 @@ namespace Main.Scripts.Player
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), true);
                 arm.SetActive(false);
+                
+                Debug.Log(heldObj);
             }
         }
 
