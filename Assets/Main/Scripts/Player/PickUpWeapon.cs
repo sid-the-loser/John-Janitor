@@ -84,7 +84,7 @@ namespace Main.Scripts.Player
                 heldObj.transform.rotation = new Quaternion(0, 0, 0, 0);
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //Gets and stores Rigidbody
                 heldObjRb.isKinematic = true; //sets rigidbody to kinematic
-                heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
+                heldObj.transform.parent = holdPosHeavy.transform; //parent object to holdposition
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), true);
                 arm.SetActive(false);
