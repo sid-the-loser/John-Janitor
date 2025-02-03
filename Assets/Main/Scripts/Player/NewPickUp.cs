@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sid.Scripts.Player;
 using UnityEngine;
 
 namespace Main.Scripts.Player
@@ -20,13 +21,12 @@ namespace Main.Scripts.Player
 
         //Reference to script which includes mouse movement of player (looking around)
         //we want to disable the player looking around when rotating the object
-        //example below 
-        //MouseLookScript mouseLookScript;
+        private PlayerMovement mouseLookScript;
         void Start()
         {
             layerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
 
-            //mouseLookScript = player.GetComponent<MouseLookScript>();
+            mouseLookScript = player.GetComponent<PlayerMovement>();
         }
         void Update()
         {
@@ -99,7 +99,9 @@ namespace Main.Scripts.Player
             if (Input.GetKey(KeyCode.R))//hold R key to rotate, change this to whatever key you want
             {
                 canDrop = false; //make sure throwing can't occur during rotating
-
+                
+                mouseLookScript.enabled = false;
+                
                 //disable player being able to look around
                 //mouseLookScript.verticalSensitivity = 0f;
                 //mouseLookScript.lateralSensitivity = 0f;
@@ -115,6 +117,7 @@ namespace Main.Scripts.Player
                 //re-enable player being able to look around
                 //mouseLookScript.verticalSensitivity = originalvalue;
                 //mouseLookScript.lateralSensitivity = originalvalue;
+                mouseLookScript.enabled = true;
                 canDrop = true;
             }
         }
