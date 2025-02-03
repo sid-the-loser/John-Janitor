@@ -75,6 +75,17 @@ namespace Main.Scripts.Player
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
+                
+                //Get all child objects of the object we are holding
+                foreach (Transform child in heldObj.transform)
+                {
+                    children.Add(child.gameObject);
+                }
+                foreach (GameObject child in children)
+                {
+                    child.layer = layerNumber;
+                }
+                
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 //make sure object doesnt collide with player, it can cause weird bugs
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
@@ -84,6 +95,11 @@ namespace Main.Scripts.Player
         {
             //re-enable collision with player
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            foreach (GameObject child in children)
+            {
+                child.layer = 0;
+            }
+            children.Clear();
             heldObj.layer = 0; //object assigned back to default layer
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //unparent object
@@ -125,6 +141,11 @@ namespace Main.Scripts.Player
         {
             //same as drop function, but add force to object before undefining it
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            foreach (GameObject child in children)
+            {
+                child.layer = 0;
+            }
+            children.Clear();
             heldObj.layer = 0;
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
