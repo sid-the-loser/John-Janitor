@@ -11,6 +11,7 @@ TagManager:
   - canPickUpThrowable
   - canPickUpWeapon
   - canLiftHeavy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - Ground
   - holdLayer
-  - 
+  - Player
   - 
   - 
   - 
