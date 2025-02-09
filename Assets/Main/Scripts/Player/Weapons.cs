@@ -19,14 +19,14 @@ public class Weapons : MonoBehaviour
         {
             switch (WeaponNumber)
             {
-                case 0:
+                case 0: //Melee
                     GlobalVariables.PlayerBaseDamage += 0;
                     GlobalVariables.PlayerAttSpeed += 0;
                     GlobalVariables.PlayerAttRange += 0;
                     GlobalVariables.PlayerCritChance += 0;
                     GlobalVariables.PlayerCritDamage += 0;
                     break;
-                case 1:
+                case 1: //ToiletBrush
                     GlobalVariables.PlayerBaseDamage += 5;
                     GlobalVariables.PlayerAttSpeed += 0.25f;
                     GlobalVariables.PlayerAttRange += 0.5f;
