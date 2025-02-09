@@ -19,6 +19,7 @@ namespace Main.Scripts.Player
         private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
         private int layerNumber; //layer index
         private List<GameObject> children = new List<GameObject>(); // list to store the child objects of the held object
+        private string name;
         
         private bool TypeHeavy = false;
         private bool TypeWeapon = false;
@@ -27,12 +28,14 @@ namespace Main.Scripts.Player
         //Reference to script which includes mouse movement of player (looking around)
         //we want to disable the player looking around when rotating the object
         private PlayerMovement mouseLookScript;
+        
         void Start()
         {
             layerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
 
             mouseLookScript = player.GetComponent<PlayerMovement>();
         }
+        
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
@@ -78,6 +81,9 @@ namespace Main.Scripts.Player
 
             }
         }
+        
+        #region Pickup Functions
+        
         void PickUpObjectHeavy(GameObject pickUpObj)
         {
             if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
@@ -110,7 +116,6 @@ namespace Main.Scripts.Player
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
                 
-                
                 //Get all child objects of the object we are holding
                 foreach (Transform child in heldObj.transform)
                 {
@@ -124,8 +129,20 @@ namespace Main.Scripts.Player
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 //make sure object doesnt collide with player, it can cause weird bugs
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+
+                name = heldObj.name;
+
+                if (name == "toiletBrush")
+                {
+                    Weapons.UpgradeStats(1);
+                }
             }
         }
+        
+        #endregion
+
+        #region Drop, Move, Rotate, Throw
+
         void DropObject()
         {
             //re-enable collision with player
@@ -138,6 +155,13 @@ namespace Main.Scripts.Player
             heldObj.layer = 0; //object assigned back to default layer
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //unparent object
+            
+            if (name == "toiletBrush")
+            {
+                Weapons.ResetStats(1);
+            }
+
+            name = null;
             heldObj = null; //undefine game object
         }
         void MoveObject()
@@ -183,19 +207,25 @@ namespace Main.Scripts.Player
         }
         void ThrowObject()
         {
-            //same as drop function, but add force to object before undefining it
-            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-            foreach (GameObject child in children)
+            if (heldObj.CompareTag("canLiftHeavy") || heldObj.CompareTag("canPickUpThrowable"))
             {
-                child.layer = 0;
+                //same as drop function, but add force to object before undefining it
+                Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+                foreach (GameObject child in children)
+                {
+                    child.layer = 0;
+                }
+                children.Clear();
+                heldObj.layer = 0;
+                heldObjRb.isKinematic = false;
+                heldObj.transform.parent = null;
+                heldObjRb.AddForce(transform.forward * throwForce);
+                heldObj = null;
             }
-            children.Clear();
-            heldObj.layer = 0;
-            heldObjRb.isKinematic = false;
-            heldObj.transform.parent = null;
-            heldObjRb.AddForce(transform.forward * throwForce);
-            heldObj = null;
         }
+        
+        #endregion
+        
         void StopClipping() //function only called when dropping/throwing
         {
             var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
