@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using FMOD.Studio;
 using Main.Scripts.Common;
@@ -31,6 +32,9 @@ namespace Sid.Scripts.Player
         private Vector3 _currentVel = Vector3.zero;
         private float _headRotationX = 0f;
         private float _headRotationY = 0f;
+        
+        private bool _movementStunned = false;
+        private bool _mouseMovementStunned = false;
 
         private KeyCode _crouchKey = KeyCode.LeftControl;
         
@@ -40,6 +44,13 @@ namespace Sid.Scripts.Player
         private EventInstance _playerWalk; // sound
         
         public float mouseSensitivity = 0.4f;
+
+        // INFO: This was here to prevent camera snap when loading the object.
+        
+        private void Awake()
+        {
+            StartCoroutine(StartingStun(1f));
+        }
         
         private void Start()
         {
@@ -51,8 +62,10 @@ namespace Sid.Scripts.Player
             GetComponent<MeshRenderer>().enabled = false;
             
             // syncing head rotation
-            _headRotationX = headObject.transform.rotation.x;
-            _headRotationY = headObject.transform.rotation.y;
+            _headRotationX = headObject.transform.localEulerAngles.x;
+            _headRotationY = transform.localEulerAngles.y;
+            
+            Debug.Log($"{_headRotationX}, {_headRotationY}");
 
             if (Application.isEditor)
                 // DEV LOG (2:00 am : 02-Oct-2024)
@@ -109,16 +122,22 @@ namespace Sid.Scripts.Player
                     _currentVel.y = tempY;
                 }
                 
-                _playerRigidbody.velocity = _currentVel;
+                if (!_movementStunned)
+                {
+                    _playerRigidbody.velocity = _currentVel;
+                }
 
-                // mouse logic
-                _headRotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-                _headRotationY += Input.GetAxis("Mouse X") * mouseSensitivity;
+                if (!_mouseMovementStunned)
+                {
+                    // mouse logic
+                    _headRotationY += Input.GetAxis("Mouse X") * mouseSensitivity;
+                    _headRotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-                _headRotationX = Mathf.Clamp(_headRotationX, -89f, 89f);
+                    _headRotationX = Mathf.Clamp(_headRotationX, -89f, 89f);
 
-                headObject.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
-                transform.localEulerAngles = new Vector3(0, _headRotationY, 0);
+                    headObject.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
+                    transform.localEulerAngles = new Vector3(0, _headRotationY, 0);
+                }
                 
                 
             }
@@ -188,6 +207,15 @@ namespace Sid.Scripts.Player
                 _playerWalk.stop(STOP_MODE.IMMEDIATE);
             }
                 
+        }
+
+        IEnumerator StartingStun(float delay)
+        {
+            _mouseMovementStunned = true;
+            _movementStunned = true;
+            yield return new WaitForSeconds(delay);
+            _mouseMovementStunned = false;
+            _movementStunned = false;
         }
     }
 }

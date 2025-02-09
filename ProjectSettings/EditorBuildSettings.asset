@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Main/Scenes/SoundTest.unity
     guid: fdc88ec252685354695cf85f26e8fc7d
   - enabled: 1
-    path: Assets/Main/Harrish/Harrish's Scenes/TitleScreen.unity
+    path: Assets/Main/Harrish/Scenes/TitleScreen.unity
     guid: e4582bce799a4734fb2842f3352b448d
   - enabled: 1
-    path: Assets/Main/Harrish/Harrish's Scenes/Level Transition Scene.unity
+    path: Assets/Main/Harrish/Scenes/Level Transition Scene.unity
     guid: 291c27ee8b82f1c41b42751ae0ec67d0
   - enabled: 1
-    path: Assets/Main/Harrish/Harrish's Scenes/Level 1.unity
+    path: Assets/Main/Harrish/Scenes/Level 1.unity
     guid: 82587dc72222a124aac756d9b4fa47a0
   m_configObjects: {}
