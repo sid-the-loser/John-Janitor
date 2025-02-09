@@ -18,7 +18,7 @@ public class MeleeEnemy : EnemyBase
 
     private void Update()
     {
-        if (CurrentState == States.Attack)
+        if (CurrentState == States.Moving)
         {
 
             if (Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f)

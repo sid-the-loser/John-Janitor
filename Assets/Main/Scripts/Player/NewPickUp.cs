@@ -86,6 +86,7 @@ namespace Main.Scripts.Player
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
+                heldObj.transform.localEulerAngles = new Vector3(90, 0, 0);
                 //Get all child objects of the object we are holding
                 foreach (Transform child in heldObj.transform)
                 {

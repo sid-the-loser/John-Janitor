@@ -12,9 +12,9 @@ namespace Sid.Scripts.Player
     {
         [SerializeField] private GameObject headObject;
         [SerializeField] private float jumpVelocity = 4.5f;
-        [SerializeField] private float walkingSpeed = 5.0f;
-        [SerializeField] private float sprintingSpeed = 8.0f;
-        [SerializeField] private float crouchingSpeed = 3.0f;
+        private float _walkingSpeed = 5.0f;
+        // [SerializeField] private float sprintingSpeed = 8.0f;
+        // [SerializeField] private float crouchingSpeed = 3.0f;
         
         [SerializeField] private float lerpSpeed = 10.0f;
         [SerializeField] private float crouchCameraY = -0.25f;
@@ -23,7 +23,7 @@ namespace Sid.Scripts.Player
         // [SerializeField] private float gravity = -9.8f; // No need since we are using a rigidbody
         [SerializeField] private LayerMask groundMask;
         
-        private float _currentSpeed = 5.0f;
+        // private float _currentSpeed = 5.0f; // We don't need it fam, we ain't sprinting
         private Vector3 _direction = Vector3.zero;
         private Vector3 _inputDirection = Vector3.zero;
         private bool _headWillCollide = false;
@@ -57,6 +57,8 @@ namespace Sid.Scripts.Player
             // getting all the components
             _playerCollisionShape = GetComponent<CapsuleCollider>();
             _playerRigidbody = GetComponent<Rigidbody>();
+
+            _walkingSpeed = GetComponent<StatsBehaviour>().GetSpeed();
             
             // disabling capsule rendering to prevent mesh clipping the camera
             GetComponent<MeshRenderer>().enabled = false;
@@ -76,7 +78,7 @@ namespace Sid.Scripts.Player
                 _crouchKey = KeyCode.C;
             
             // INFO: IDK what this is! It's throwing an error
-            _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
+            // _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
         }
 
         
@@ -89,7 +91,8 @@ namespace Sid.Scripts.Player
                 
                 
                 // crouch and speed logic
-                if (Input.GetKey(_crouchKey))
+                // disabled sprinting because it felt unnecessary
+                /*if (Input.GetKey(_crouchKey))
                 {
                     _currentSpeed = crouchingSpeed;
                     // TODO: Add head lowering, collider lowering and head collision checks (maybe done in next release)
@@ -98,7 +101,7 @@ namespace Sid.Scripts.Player
                 else if (!_headWillCollide)
                 {
                     _currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintingSpeed : walkingSpeed;
-                }
+                }*/
                 
                 _currentVel = _playerRigidbody.velocity;
                 
@@ -112,13 +115,13 @@ namespace Sid.Scripts.Player
 
                 if (_direction != Vector3.zero)
                 {
-                    _currentVel.x = _direction.x * _currentSpeed;
-                    _currentVel.z = _direction.z * _currentSpeed;
+                    _currentVel.x = _direction.x * _walkingSpeed;
+                    _currentVel.z = _direction.z * _walkingSpeed;
                 }
                 else
                 {
                     var tempY = _currentVel.y;
-                    _currentVel = Vector3.MoveTowards(_currentVel, Vector3.zero, _currentSpeed);
+                    _currentVel = Vector3.MoveTowards(_currentVel, Vector3.zero, _walkingSpeed);
                     _currentVel.y = tempY;
                 }
                 
@@ -209,7 +212,7 @@ namespace Sid.Scripts.Player
                 
         }
 
-        IEnumerator StartingStun(float delay)
+        private IEnumerator StartingStun(float delay)
         {
             _mouseMovementStunned = true;
             _movementStunned = true;
