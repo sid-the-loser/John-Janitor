@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7430422477651919276}
   - component: {fileID: 7808569929287136091}
   - component: {fileID: 3509323685784068311}
-  - component: {fileID: 4509132619529338248}
+  - component: {fileID: 4789446938111163291}
   - component: {fileID: 4535148546787018816}
   m_Layer: 0
   m_Name: Player
@@ -294,29 +294,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouseSensitivity: 2
---- !u!114 &4509132619529338248
+--- !u!114 &4789446938111163291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3159294460312658011}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982f829d2ce66ff46bdfe56e7e9909d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3feaf3763890d0147b39b4b655bc98b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair1: {fileID: 0}
-  crosshair2: {fileID: 0}
-  objTransform: {fileID: 0}
-  cameraTrans: {fileID: 8556354631775455389}
-  playerTrans: {fileID: 1167781002090833655}
-  interactable: 1
-  pickedup: 0
-  objRigidbody: {fileID: 0}
-  throwAmount: 4000
-  stageObj: {fileID: 0}
-  pickupObj: {fileID: 0}
+  health: 0
+  speed: 0
+  attackDamage: 0
 --- !u!114 &4535148546787018816
 MonoBehaviour:
   m_ObjectHideFlags: 0
