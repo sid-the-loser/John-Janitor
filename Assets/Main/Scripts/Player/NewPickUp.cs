@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sid.Scripts.Player;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Main.Scripts.Player
@@ -18,6 +19,10 @@ namespace Main.Scripts.Player
         private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
         private int layerNumber; //layer index
         private List<GameObject> children = new List<GameObject>(); // list to store the child objects of the held object
+        
+        private bool TypeHeavy = false;
+        private bool TypeWeapon = false;
+        private bool TypeThrowable = false;
 
         //Reference to script which includes mouse movement of player (looking around)
         //we want to disable the player looking around when rotating the object
@@ -43,6 +48,12 @@ namespace Main.Scripts.Player
                         {
                             //pass in object hit into the PickUpObjectHeavy function
                             PickUpObjectHeavy(hit.transform.gameObject);
+                            TypeHeavy = true; TypeWeapon = false; TypeThrowable = false;
+                            
+                        }else if (hit.transform.gameObject.CompareTag("canPickUpWeapon")) //Checks if it is a Light object like cup, ball, etc
+                        {
+                            PickUpObjectWeapon(hit.transform.gameObject);
+                            TypeHeavy = false; TypeWeapon = true; TypeThrowable = false;
                         }
                     }
                 }
@@ -75,6 +86,30 @@ namespace Main.Scripts.Player
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
+                //Get all child objects of the object we are holding
+                foreach (Transform child in heldObj.transform)
+                {
+                    children.Add(child.gameObject);
+                }
+                foreach (GameObject child in children)
+                {
+                    child.layer = layerNumber;
+                }
+                
+                heldObj.layer = layerNumber; //change the object layer to the holdLayer
+                //make sure object doesnt collide with player, it can cause weird bugs
+                Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+            }
+        }
+        void PickUpObjectWeapon(GameObject pickUpObj)
+        {
+            if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
+            {
+                heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
+                heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
+                heldObjRb.isKinematic = true;
+                heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+                
                 
                 //Get all child objects of the object we are holding
                 foreach (Transform child in heldObj.transform)
@@ -107,8 +142,17 @@ namespace Main.Scripts.Player
         }
         void MoveObject()
         {
-            //keep object position the same as the holdPosition position
-            heldObj.transform.position = holdPosHeavy.transform.position;
+            if (TypeHeavy)
+            {
+                //keep object position the same as the holdPosition position
+                heldObj.transform.position = holdPosHeavy.transform.position;
+            }else if (TypeWeapon)
+            {
+                heldObj.transform.position = holdPos.transform.position;
+            }else if (TypeThrowable)
+            {
+                
+            }
         }
         void RotateObject()
         {
