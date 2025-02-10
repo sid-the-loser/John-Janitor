@@ -47,7 +47,7 @@ public class Level1 : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
         if (_playerStats.GetIsDead())
@@ -93,9 +93,10 @@ public class Level1 : MonoBehaviour
 
     private IEnumerator LevelTransition()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(10f);
+        Debug.Log("Level Transition");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }

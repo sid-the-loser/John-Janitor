@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main/Harrish/Scenes/Level 1.unity
     guid: 82587dc72222a124aac756d9b4fa47a0
+  - enabled: 1
+    path: Assets/Main/Harrish/Scenes/Level Transition Scene.unity
+    guid: 291c27ee8b82f1c41b42751ae0ec67d0
   m_configObjects: {}
