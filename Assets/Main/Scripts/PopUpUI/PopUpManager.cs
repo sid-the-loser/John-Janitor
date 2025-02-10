@@ -14,8 +14,6 @@ public class PopUpManager : MonoBehaviour
     [SerializeField] private float objPopUpAnimationFadeOut = 2.0f;
     
     private int _objPopUpCount = 0;
-    
-    private Color _objPopUpColor = Color.white;
 
     private void Awake()
     {
@@ -25,18 +23,13 @@ public class PopUpManager : MonoBehaviour
     private void Update()
     {
         objectiveText.color = 
-            Color.Lerp(objectiveText.color, _objPopUpCount == 0 ? Color.clear : _objPopUpColor,
+            Color.Lerp(objectiveText.color, _objPopUpCount == 0 ? Color.clear : Color.red,
                 (_objPopUpCount == 0 ? objPopUpAnimationFadeOut : objPopUpAnimationFadeIn) * Time.deltaTime);
     }
 
     public void SetObjective(string newObjective)
     {
         objectiveText.text = objectivePrefix + " " + newObjective;
-        StartCoroutine(ObjectiveFadeStart());
-    }
-
-    public void FlashObjective()
-    {
         StartCoroutine(ObjectiveFadeStart());
     }
 

@@ -7,12 +7,9 @@ using UnityEngine.AI;
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] private float visionTriggerDistance = 20f;
-    
     protected enum States
     {
         Wander,
-        Moving,
         Attack,
         Die
     }
@@ -27,7 +24,7 @@ public class EnemyBase : MonoBehaviour
     
     protected States CurrentState = States.Wander;
     
-    protected bool MovingTriggered = false;
+    protected bool AttackTriggered = false;
 
     protected void OnStart()
     {
@@ -38,12 +35,12 @@ public class EnemyBase : MonoBehaviour
 
     protected void LateUpdate()
     {
-        if (!MovingTriggered)
+        if (!AttackTriggered)
         {
-            if (Vector3.Distance(PlayerObject.transform.position, transform.position) <= visionTriggerDistance)
+            if (Vector3.Distance(PlayerObject.transform.position, transform.position) <= 10f)
             {
-                CurrentState = States.Moving;
-                MovingTriggered = true;
+                CurrentState = States.Attack;
+                AttackTriggered = true;
             }
         }
 

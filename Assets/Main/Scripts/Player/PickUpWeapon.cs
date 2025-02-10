@@ -81,11 +81,10 @@ namespace Main.Scripts.Player
             if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
             {
                 heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-                // heldObj.transform.rotation = new Quaternion(0, 0, 0, 0);
+                heldObj.transform.rotation = new Quaternion(0, 0, 0, 0);
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //Gets and stores Rigidbody
                 heldObjRb.isKinematic = true; //sets rigidbody to kinematic
                 heldObj.transform.parent = holdPosHeavy.transform; //parent object to holdposition
-                heldObj.transform.localEulerAngles = new Vector3(90, 0, 0);
                 heldObj.layer = layerNumber; //change the object layer to the holdLayer
                 Physics.IgnoreCollision(heldObj.GetComponent<BoxCollider>(), player.GetComponent<CapsuleCollider>(), true);
                 arm.SetActive(false);
