@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using FMOD.Studio;
 using Main.Scripts.Common;
@@ -11,9 +12,9 @@ namespace Sid.Scripts.Player
     {
         [SerializeField] private GameObject headObject;
         [SerializeField] private float jumpVelocity = 4.5f;
-        [SerializeField] private float walkingSpeed = 5.0f;
-        [SerializeField] private float sprintingSpeed = 8.0f;
-        [SerializeField] private float crouchingSpeed = 3.0f;
+        private float _walkingSpeed = 5.0f;
+        // [SerializeField] private float sprintingSpeed = 8.0f;
+        // [SerializeField] private float crouchingSpeed = 3.0f;
         
         [SerializeField] private float lerpSpeed = 10.0f;
         [SerializeField] private float crouchCameraY = -0.25f;
@@ -22,7 +23,7 @@ namespace Sid.Scripts.Player
         // [SerializeField] private float gravity = -9.8f; // No need since we are using a rigidbody
         [SerializeField] private LayerMask groundMask;
         
-        private float _currentSpeed = 5.0f;
+        // private float _currentSpeed = 5.0f; // We don't need it fam, we ain't sprinting
         private Vector3 _direction = Vector3.zero;
         private Vector3 _inputDirection = Vector3.zero;
         private bool _headWillCollide = false;
@@ -31,6 +32,9 @@ namespace Sid.Scripts.Player
         private Vector3 _currentVel = Vector3.zero;
         private float _headRotationX = 0f;
         private float _headRotationY = 0f;
+        
+        private bool _movementStunned = false;
+        private bool _mouseMovementStunned = false;
 
         private KeyCode _crouchKey = KeyCode.LeftControl;
         
@@ -40,19 +44,28 @@ namespace Sid.Scripts.Player
         private EventInstance _playerWalk; // sound
         
         public float mouseSensitivity = 0.4f;
+
+        // INFO: This was here to prevent camera snap when loading the object.
+        
+        private void Awake()
+        {
+            StartCoroutine(StartingStun(1f));
+        }
         
         private void Start()
         {
             // getting all the components
             _playerCollisionShape = GetComponent<CapsuleCollider>();
             _playerRigidbody = GetComponent<Rigidbody>();
+
+            _walkingSpeed = GetComponent<StatsBehaviour>().GetSpeed();
             
             // disabling capsule rendering to prevent mesh clipping the camera
             GetComponent<MeshRenderer>().enabled = false;
             
             // syncing head rotation
-            _headRotationX = headObject.transform.rotation.x;
-            _headRotationY = headObject.transform.rotation.y;
+            _headRotationX = headObject.transform.localEulerAngles.x;
+            _headRotationY = transform.localEulerAngles.y;
 
             if (Application.isEditor)
                 // DEV LOG (2:00 am : 02-Oct-2024)
@@ -63,7 +76,7 @@ namespace Sid.Scripts.Player
                 _crouchKey = KeyCode.C;
             
             // INFO: IDK what this is! It's throwing an error
-            _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
+            // _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
         }
 
         
@@ -76,7 +89,8 @@ namespace Sid.Scripts.Player
                 
                 
                 // crouch and speed logic
-                if (Input.GetKey(_crouchKey))
+                // disabled sprinting because it felt unnecessary
+                /*if (Input.GetKey(_crouchKey))
                 {
                     _currentSpeed = crouchingSpeed;
                     // TODO: Add head lowering, collider lowering and head collision checks (maybe done in next release)
@@ -85,7 +99,7 @@ namespace Sid.Scripts.Player
                 else if (!_headWillCollide)
                 {
                     _currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintingSpeed : walkingSpeed;
-                }
+                }*/
                 
                 _currentVel = _playerRigidbody.velocity;
                 
@@ -99,26 +113,32 @@ namespace Sid.Scripts.Player
 
                 if (_direction != Vector3.zero)
                 {
-                    _currentVel.x = _direction.x * _currentSpeed;
-                    _currentVel.z = _direction.z * _currentSpeed;
+                    _currentVel.x = _direction.x * _walkingSpeed;
+                    _currentVel.z = _direction.z * _walkingSpeed;
                 }
                 else
                 {
                     var tempY = _currentVel.y;
-                    _currentVel = Vector3.MoveTowards(_currentVel, Vector3.zero, _currentSpeed);
+                    _currentVel = Vector3.MoveTowards(_currentVel, Vector3.zero, _walkingSpeed);
                     _currentVel.y = tempY;
                 }
                 
-                _playerRigidbody.velocity = _currentVel;
+                if (!_movementStunned)
+                {
+                    _playerRigidbody.velocity = _currentVel;
+                }
 
-                // mouse logic
-                _headRotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-                _headRotationY += Input.GetAxis("Mouse X") * mouseSensitivity;
+                if (!_mouseMovementStunned)
+                {
+                    // mouse logic
+                    _headRotationY += Input.GetAxis("Mouse X") * mouseSensitivity;
+                    _headRotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-                _headRotationX = Mathf.Clamp(_headRotationX, -89f, 89f);
+                    _headRotationX = Mathf.Clamp(_headRotationX, -89f, 89f);
 
-                headObject.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
-                transform.localEulerAngles = new Vector3(0, _headRotationY, 0);
+                    headObject.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
+                    transform.localEulerAngles = new Vector3(0, _headRotationY, 0);
+                }
                 
                 
             }
@@ -188,6 +208,15 @@ namespace Sid.Scripts.Player
                 _playerWalk.stop(STOP_MODE.IMMEDIATE);
             }
                 
+        }
+
+        private IEnumerator StartingStun(float delay)
+        {
+            _mouseMovementStunned = true;
+            _movementStunned = true;
+            yield return new WaitForSeconds(delay);
+            _mouseMovementStunned = false;
+            _movementStunned = false;
         }
     }
 }
