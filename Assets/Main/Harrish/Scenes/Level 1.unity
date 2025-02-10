@@ -4889,7 +4889,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1701911840946242249, guid: 3f416e9d44f6cea4282560e697a72ef4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.72
+      value: 26.53
       objectReference: {fileID: 0}
     - target: {fileID: 1701911840946242249, guid: 3f416e9d44f6cea4282560e697a72ef4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4897,7 +4897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1701911840946242249, guid: 3f416e9d44f6cea4282560e697a72ef4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.18
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 1701911840946242249, guid: 3f416e9d44f6cea4282560e697a72ef4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18564,8 +18564,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18600,7 +18600,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -74.81179, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
