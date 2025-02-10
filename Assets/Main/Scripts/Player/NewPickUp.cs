@@ -11,7 +11,7 @@ namespace Main.Scripts.Player
         public Transform holdPos;
         public Transform holdPosHeavy;
         //if you copy from below this point, you are legally required to like the video
-        public float throwForce = 500f; //force at which the object is thrown at
+        public float throwForce = 10f; //force at which the object is thrown at
         public float pickUpRange = 5f; //how far the player can pickup the object from
         private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
         private GameObject heldObj; //object which we pick up
@@ -40,7 +40,7 @@ namespace Main.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
             {
-                if (heldObj == null) //if currently not holding anything
+                if (heldObj is null) //if currently not holding anything
                 {
                     //perform raycast to check if player is looking at object within pickup range
                     RaycastHit hit;
@@ -69,7 +69,7 @@ namespace Main.Scripts.Player
                     }
                 }
             }
-            if (heldObj != null) //if player is holding object
+            if (heldObj is not null) //if player is holding object
             {
                 MoveObject(); //keep object position at holdPos
                 RotateObject();
@@ -92,6 +92,7 @@ namespace Main.Scripts.Player
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPosHeavy.transform; //parent object to holdposition
+                heldObj.transform.localEulerAngles = new Vector3(90, 0, 0);
                 //Get all child objects of the object we are holding
                 foreach (Transform child in heldObj.transform)
                 {
@@ -219,7 +220,7 @@ namespace Main.Scripts.Player
                 heldObj.layer = 0;
                 heldObjRb.isKinematic = false;
                 heldObj.transform.parent = null;
-                heldObjRb.AddForce(transform.forward * throwForce);
+                heldObjRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
                 heldObj = null;
             }
         }

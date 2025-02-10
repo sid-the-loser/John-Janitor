@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class Throwables : MonoBehaviour
 {
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            name = this.name;
-            if (name == "Chair")
-            {
-                //add monster health remove here
-                Debug.Log("hit enemy");
+            if (this.CompareTag("canLiftHeavy"))
+            { 
+                if (rb.velocity.magnitude > 10)
+                {
+                    other.gameObject.GetComponent<StatsBehaviour>().DamageHealth(2);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
