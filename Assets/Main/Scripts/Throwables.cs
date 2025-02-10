@@ -21,6 +21,7 @@ public class Throwables : MonoBehaviour
                 if (rb.velocity.magnitude > 10)
                 {
                     other.gameObject.GetComponent<StatsBehaviour>().DamageHealth(2);
+                    Destroy(this.gameObject);
                 }
             }
         }

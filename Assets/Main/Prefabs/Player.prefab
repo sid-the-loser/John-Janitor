@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headObject: {fileID: 989885652219958022}
-  jumpVelocity: 7
+  jumpVelocity: 10
   lerpSpeed: 10
   crouchCameraY: -0.25
   crouchColliderHeight: 1.5
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feaf3763890d0147b39b4b655bc98b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  maxHealth: 20
   speed: 15
   attackDamage: 1
 --- !u!114 &4535148546787018816

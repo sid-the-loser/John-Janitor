@@ -388,6 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faf732574a196b4aadafec8d63591c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visionTriggerDistance: 20
+  stoppingDistance: 3
+  explosionRadius: 6.5
 --- !u!114 &3641097988448658984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,9 +403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feaf3763890d0147b39b4b655bc98b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  maxHealth: 0
   speed: 0
-  attackDamage: 2
+  attackDamage: 5
 --- !u!195 &5925728595651174337
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -8,6 +8,10 @@ using Random = UnityEngine.Random;
 
 public class MeleeEnemy : EnemyBase
 {
+    
+    [SerializeField] private float stoppingDistance = 2.5f;
+    [SerializeField] private float explosionRadius = 3f;
+    
     private Animator animator;
     private StatsBehaviour stats;
 
@@ -30,7 +34,7 @@ public class MeleeEnemy : EnemyBase
         if (CurrentState == States.Moving)
         {
 
-            if (!primed && Vector3.Distance(PlayerObject.transform.position, transform.position) > 2f)
+            if (!primed && Vector3.Distance(PlayerObject.transform.position, transform.position) > stoppingDistance)
             {
                 animator.SetTrigger("Moving");
                 TargetPosition = PlayerObject.transform.position;
@@ -50,10 +54,9 @@ public class MeleeEnemy : EnemyBase
         {
             primed = true;
             yield return new WaitForSeconds(0.5f);
-            if (Vector3.Distance(PlayerObject.transform.position, transform.position) <= 2f)
+            if (Vector3.Distance(PlayerObject.transform.position, transform.position) <= explosionRadius)
             {
                 PlayerObject.GetComponent<StatsBehaviour>().DamageHealth(stats.GetAttackDamage());
-                Debug.Log("damaged");
             }
             Destroy(this.gameObject);
         }
