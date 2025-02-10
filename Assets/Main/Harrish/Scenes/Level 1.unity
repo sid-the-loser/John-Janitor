@@ -6208,6 +6208,10 @@ PrefabInstance:
       propertyPath: throwForce
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7059794556830867068, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10002,6 +10006,7 @@ GameObject:
   - component: {fileID: 540196980}
   - component: {fileID: 540196982}
   - component: {fileID: 540196983}
+  - component: {fileID: 540196984}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10072,6 +10077,19 @@ MonoBehaviour:
   objPopUpDelay: 5
   objPopUpAnimationFadeIn: 10
   objPopUpAnimationFadeOut: 2
+--- !u!114 &540196984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540196979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6cb0a5c8f1cbc49be61175d636e38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 5
 --- !u!1 &543943905
 GameObject:
   m_ObjectHideFlags: 0

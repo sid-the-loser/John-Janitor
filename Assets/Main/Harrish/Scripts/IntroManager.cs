@@ -58,5 +58,10 @@ public class IntroManager : MonoBehaviour
         
         SceneManager.LoadScene("Level 1");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     
 }

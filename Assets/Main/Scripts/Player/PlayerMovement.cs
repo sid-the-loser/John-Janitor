@@ -66,8 +66,6 @@ namespace Sid.Scripts.Player
             // syncing head rotation
             _headRotationX = headObject.transform.localEulerAngles.x;
             _headRotationY = transform.localEulerAngles.y;
-            
-            Debug.Log($"{_headRotationX}, {_headRotationY}");
 
             if (Application.isEditor)
                 // DEV LOG (2:00 am : 02-Oct-2024)

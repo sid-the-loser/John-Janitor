@@ -12,7 +12,7 @@ namespace Udey.Scripts
 {
     public class Attack : MonoBehaviour
     {
-        [SerializeField] private GameObject image;
+        // [SerializeField] private GameObject image;
         [SerializeField] private float meleeCoolDown = 0.75f;
         [SerializeField] private float meleeRange = 5f;
 
@@ -55,10 +55,10 @@ namespace Udey.Scripts
 
         private IEnumerator FakeAnimation()
         {
-            image.transform.Rotate(0, 0, 25); // Rotate image to the left by 45 degrees
+            // image.transform.Rotate(0, 0, 25); // Rotate image to the left by 45 degrees
             AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Swing, this.transform.position);
             yield return new WaitForSeconds(0.2f); // Wait for 0.1 seconds
-            image.transform.Rotate(0, 0, -25); // Rotate image back to normal
+            // image.transform.Rotate(0, 0, -25); // Rotate image back to normal
         }
 
         private IEnumerator FlashColor(GameObject hit)
