@@ -1,17 +1,22 @@
 using Main.Scripts.Common;
 using UnityEngine;
+using TMPro;
+using Unity.Mathematics;
+using Random = UnityEngine.Random;
 
 namespace Main.Scripts.Player
 {
     public class Combo : MonoBehaviour
     {
         [SerializeField] private float reset = 5f; //how long it takes for the combo to reset
+        public TMP_Text ComboCountText;
+        public TMP_Text ComboTimerText;
 
         private static int combo; //current combo
         private static float timer; //time since last combo update
-        
+
         #region Base Player Stats
-        
+
         private float basePlayerMaxHealth;
         private float basePlayerBaseDamage;
         private float basePlayerBaseHpRegen;
@@ -22,36 +27,34 @@ namespace Main.Scripts.Player
         private float basePlayerDodgeChance;
         private float basePlayerCritChance;
         private float basePlayerCritDamage;
-        
+
         #endregion
-    
+
         // Start is called before the first frame update
         void Start()
         {
-            timer = 0f;
+            timer = reset;
             combo = 0;
             GetBaseStats(); //gets base player stats
         }
 
         private void Update()
         {
-            timer = timer + Time.deltaTime; //updates time since last combo update
-            if (timer > reset) //when player runs out of combo timer
+            timer = timer - Time.deltaTime; //updates time since last combo update
+            if (timer <= 0) //when player runs out of combo timer
             {
                 combo = 0; //resets combo
-                timer = 0f; //resets timer
-                Debug.Log(combo); //updates combo count
-                ResetPlayerStats(); //resets player stats to default
+                timer = 5f; //resets timer
                 Debug.Log("Player Combo and Stats Boost Reset");
             }
+            UpdateText();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         public static void ComboIncrease()
         {
             combo++; //increments combo by 1 when player hits a Player
-            timer = 0f; //resets timer
-            Debug.Log(combo); //updates combo count
+            timer = 5f; //resets timer
             if (combo % 5 == 0) //when combo is a multiple of 5
             {
                 IncreasePlayerStats(); //increases the player stats
@@ -60,22 +63,23 @@ namespace Main.Scripts.Player
 
         private void GetBaseStats()
         {
-            basePlayerMaxHealth  = GlobalVariables.PlayerMaxHealth;
-            basePlayerBaseDamage  = GlobalVariables.PlayerBaseDamage;
-            basePlayerBaseHpRegen  = GlobalVariables.PlayerBaseHpRegen;
-            basePlayerAttSpeed  = GlobalVariables.PlayerAttSpeed;
-            basePlayerMoveSpeed  = GlobalVariables.PlayerMoveSpeed;
-            basePlayerAttRange  = GlobalVariables.PlayerAttRange;
-            basePlayerBaseDefense  = GlobalVariables.PlayerBaseDefense;
-            basePlayerDodgeChance  = GlobalVariables.PlayerDodgeChance;
-            basePlayerCritChance  = GlobalVariables.PlayerCritChance;
-            basePlayerCritDamage  = GlobalVariables.PlayerCritDamage;
+            basePlayerMaxHealth = GlobalVariables.PlayerMaxHealth;
+            basePlayerBaseDamage = GlobalVariables.PlayerBaseDamage;
+            basePlayerBaseHpRegen = GlobalVariables.PlayerBaseHpRegen;
+            basePlayerAttSpeed = GlobalVariables.PlayerAttSpeed;
+            basePlayerMoveSpeed = GlobalVariables.PlayerMoveSpeed;
+            basePlayerAttRange = GlobalVariables.PlayerAttRange;
+            basePlayerBaseDefense = GlobalVariables.PlayerBaseDefense;
+            basePlayerDodgeChance = GlobalVariables.PlayerDodgeChance;
+            basePlayerCritChance = GlobalVariables.PlayerCritChance;
+            basePlayerCritDamage = GlobalVariables.PlayerCritDamage;
         }
+
         private static void IncreasePlayerStats()
         {
             int option; //stores random option
             option = Random.Range(0, 10); //selects a random option
-            
+
             switch (option) //updates player stats
             {
                 case 0:
@@ -111,15 +115,15 @@ namespace Main.Scripts.Player
                     Debug.Log("Increased player defence");
                     break;
                 case 8:
-                    GlobalVariables.PlayerDodgeChance += (GlobalVariables.PlayerDodgeChance*0.025f);
+                    GlobalVariables.PlayerDodgeChance += (GlobalVariables.PlayerDodgeChance * 0.025f);
                     Debug.Log("Increased player dodge chance");
                     break;
                 case 9:
-                    GlobalVariables.PlayerCritChance += (GlobalVariables.PlayerCritChance*0.025f);
+                    GlobalVariables.PlayerCritChance += (GlobalVariables.PlayerCritChance * 0.025f);
                     Debug.Log("Increased player crit chance");
                     break;
                 case 10:
-                    GlobalVariables.PlayerCritDamage += (GlobalVariables.PlayerCritDamage*0.01f);
+                    GlobalVariables.PlayerCritDamage += (GlobalVariables.PlayerCritDamage * 0.01f);
                     Debug.Log("Increased player crit damage");
                     break;
             }
@@ -138,6 +142,11 @@ namespace Main.Scripts.Player
             GlobalVariables.PlayerCritChance = basePlayerCritChance;
             GlobalVariables.PlayerCritDamage = basePlayerCritDamage;
         }
-        
+
+        private void UpdateText()
+        {
+            ComboCountText.text = "Combo Count: " +combo.ToString();
+            ComboTimerText.text = "Combo Reset Timer: " + (math.round(timer)).ToString();
+        }
     }
 }
