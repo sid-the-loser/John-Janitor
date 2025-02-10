@@ -83,10 +83,19 @@ public class Level1 : MonoBehaviour
                 _popUpManager.SetObjective("Head back to the elevator.");
                 _elevator.SetLastContact(true);
                 _elevator.TriggerElevator();
+                StartCoroutine(LevelTransition());
                 _levelPassed = true;
             }
             
-            yield return new WaitForSeconds(5f);   
+            yield return new WaitForSeconds(5f);
         }
+    }
+
+    private IEnumerator LevelTransition()
+    {
+        yield return new WaitForSeconds(6f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(0);
     }
 }

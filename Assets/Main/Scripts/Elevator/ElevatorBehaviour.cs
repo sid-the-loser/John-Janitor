@@ -12,14 +12,15 @@ public class ElevatorBehaviour : MonoBehaviour
 
     public void TriggerElevator()
     {
-        if (!_firstContact)
+        if (!_firstContact && !_lastContact)
         {
             door1Animator.SetTrigger("Hey");
             door2Animator.SetTrigger("Hey");
         }
         else if (_lastContact)
         {
-            
+            door1Animator.SetTrigger("Hey");
+            door2Animator.SetTrigger("Hey");
         }
         else
         {
