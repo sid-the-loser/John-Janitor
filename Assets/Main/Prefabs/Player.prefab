@@ -539,7 +539,7 @@ MonoBehaviour:
   player: {fileID: 3159294460312658011}
   holdPos: {fileID: 4965493855782477455}
   holdPosHeavy: {fileID: 9202810392494650068}
-  throwForce: 500
+  throwForce: 30
   pickUpRange: 5
 --- !u!1 &8758418193911250886
 GameObject:

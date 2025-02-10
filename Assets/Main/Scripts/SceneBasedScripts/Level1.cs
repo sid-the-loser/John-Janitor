@@ -27,5 +27,4 @@ public class Level1 : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-    
 }

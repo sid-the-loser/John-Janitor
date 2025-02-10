@@ -9,15 +9,22 @@ using Random = UnityEngine.Random;
 public class MeleeEnemy : EnemyBase
 {
     private Animator animator;
+    private StatsBehaviour stats;
     
     private void Start()
     {
         animator = GetComponent<Animator>();
+        stats = GetComponent<StatsBehaviour>();
         OnStart();
     }
 
     private void Update()
     {
+        if (stats.GetIsDead())
+        {
+            Destroy(gameObject);
+        }
+        
         if (CurrentState == States.Moving)
         {
 
