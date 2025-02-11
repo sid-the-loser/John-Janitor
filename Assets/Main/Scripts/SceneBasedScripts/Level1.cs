@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sid.Scripts.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class Level1 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
+    [SerializeField] private TextMeshProUGUI enemyCount;
     
     private GameObject _playerObject;
     
@@ -21,6 +23,8 @@ public class Level1 : MonoBehaviour
     private bool _deathTriggered;
 
     private bool _levelPassed;
+
+    private float _pastHealth;
     
     private void Awake()
     {
@@ -36,7 +40,7 @@ public class Level1 : MonoBehaviour
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
         
         dyingImage.color = new Color(1f, 1f, 1f, 0f);
-        _popUpManager.SetObjective("Kill all enemies!");
+        _popUpManager.SetObjective("Clean up the garbage!");
 
         StartCoroutine(Level1PassedCheck());
     }
@@ -57,15 +61,10 @@ public class Level1 : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        var alpha = _playerStats.GetHealth() / _playerStats.GetMaxHealth();
-        
-        if (alpha is >= 0 and <= 1 && !_playerStats.GetIsDead())
+        if (_playerStats.GetHealth() != _pastHealth)
         {
-            dyingImage.color = new Color(1f, 1f, 1f, 1-alpha);
-        }
-        else
-        {
-            dyingImage.color = new Color(1f, 1f, 1f, 0f);
+            StartCoroutine(DamageEffect());
+            _pastHealth = _playerStats.GetHealth();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -78,7 +77,11 @@ public class Level1 : MonoBehaviour
     {
         while (!_levelPassed)
         {
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+            var _count = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            
+            enemyCount.text = $"Trash Count: {_count}";
+            
+            if (_count <= 0)
             {
                 _popUpManager.SetObjective("Head back to the elevator.");
                 _elevator.SetLastContact(true);
@@ -98,5 +101,12 @@ public class Level1 : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(2);
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        dyingImage.color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(0.5f);
+        dyingImage.color = new Color(1f, 1f, 1f, 0f);
     }
 }
