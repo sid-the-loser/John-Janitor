@@ -18,7 +18,7 @@ public class Throwables : MonoBehaviour
         {
             if (this.CompareTag("canLiftHeavy"))
             { 
-                if (rb.velocity.magnitude > 10)
+                if (rb.velocity.magnitude > 6)
                 {
                     other.gameObject.GetComponent<StatsBehaviour>().DamageHealth(2);
                     Destroy(this.gameObject);
