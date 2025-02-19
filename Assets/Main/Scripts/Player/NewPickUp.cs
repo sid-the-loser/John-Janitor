@@ -80,6 +80,14 @@ namespace Main.Scripts.Player
                         TypeThrowable = true; //insert false statement into the new drop funstion (YET TO BE CRETED)
                     }
                 }
+                else
+                {
+                    if (canDrop == true)
+                    {
+                        StopClipping(); //prevents object from clipping through walls
+                        DropObject();
+                    }
+                }
             }
             if (heldObj is not null) //if player is holding object
             {
@@ -90,7 +98,15 @@ namespace Main.Scripts.Player
                     StopClipping();
                     ThrowObject();
                 }
-
+            }
+            if (heldObjThrowable is not null)
+            {
+                MoveObject();
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+                {
+                    StopClipping();
+                    ThrowObject();
+                }
             }
         }
         
@@ -197,20 +213,22 @@ namespace Main.Scripts.Player
             {
                 Weapons.ResetStats(1);
             }
-
             name = null;
             heldObj = null; //undefine game object
         }
+        
         void MoveObject()
         {
             if (TypeHeavy)
             {
                 //keep object position the same as the holdPosition position
                 heldObj.transform.position = holdPosHeavy.transform.position;
-            }else if (TypeWeapon)
+            }
+            if (TypeWeapon)
             {
                 heldObj.transform.position = holdPos.transform.position;
-            }else if (TypeThrowable)
+            }
+            if (TypeThrowable)
             {
                 heldObjThrowable.transform.position = holdPos.transform.position;
             }
@@ -258,6 +276,7 @@ namespace Main.Scripts.Player
                 heldObj.transform.parent = null;
                 heldObjRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
                 heldObj = null;
+                TypeHeavy = false; TypeThrowable = false; //fix ltr
             }
         }
         
