@@ -17,9 +17,8 @@ namespace Main.Scripts.Player
         private new string name;
         
         private bool typeThrowable;
-
-        //Reference to script which includes mouse movement of player (looking around)
-        //we want to disable the player looking around when rotating the object
+        
+        
         
         void Start()
         {
@@ -62,7 +61,18 @@ namespace Main.Scripts.Player
                     StopClipping();
                     ThrowObject();
                 }
-
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                if (isThrowableHeld)
+                {
+                    !isThrowableHeld;
+                    if (heldObj != null) heldObj.SetActive(false);
+                }else if (NewPickUp.isWeaponHeld)
+                {
+                    !NewPickUp.isWeaponHeld;
+                    NewPickUp.SwapHeld();
+                }
             }
         }
         
