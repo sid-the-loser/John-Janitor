@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &4502093 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4965493855782477455, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
-  m_PrefabInstance: {fileID: 786463853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &9944958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,11 +143,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &11032658 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9202810392494650068, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
-  m_PrefabInstance: {fileID: 786463853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &23912705
 GameObject:
   m_ObjectHideFlags: 0
@@ -6777,11 +6767,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3442504411407714333, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8556354631775455389, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1481959179}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8639020061274149024, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1608798458}
+      addedObject: {fileID: 1608798466}
   m_SourcePrefab: {fileID: 100100000, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
 --- !u!1 &801886237
 GameObject:
@@ -12167,6 +12160,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0005706345, y: 0.00054270565, z: 0.0002000004}
   m_Center: {x: 0, y: 0.000028640032, z: 0}
+--- !u!1 &1481959178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481959179}
+  m_Layer: 8
+  m_Name: holdPosThrowable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481959179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481959178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0476948, y: 0.009275246, z: 0.19066913, w: 0.98045117}
+  m_LocalPosition: {x: 0.563, y: -0.509, z: 1.546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608798459}
+  m_LocalEulerAnglesHint: {x: -5.57, y: 0, z: 22.01}
 --- !u!1 &1507523080
 GameObject:
   m_ObjectHideFlags: 0
@@ -13122,7 +13146,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8639020061274149024, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
   m_PrefabInstance: {fileID: 786463853}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1608798458
+--- !u!4 &1608798459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8556354631775455389, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+  m_PrefabInstance: {fileID: 786463853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1608798466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13131,13 +13160,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1608798450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c01f1f3e7b19a14c92ee5b7f25d3e63, type: 3}
+  m_Script: {fileID: 11500000, guid: 270ba18800f7b924aaa9fd11979c88d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 814734537}
-  holdPos: {fileID: 4502093}
-  holdPosHeavy: {fileID: 11032658}
-  throwForce: 500
+  holdPos: {fileID: 1481959179}
+  throwForce: 10
   pickUpRange: 5
 --- !u!65 &1612045784
 BoxCollider:
@@ -14399,6 +14427,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1e00ce0005a8d7842a365419b75ab089, type: 3}
       propertyPath: m_Name
       value: GhostRoast
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1e00ce0005a8d7842a365419b75ab089, type: 3}
+      propertyPath: m_TagString
+      value: canPickUpThrowable
       objectReference: {fileID: 0}
     - target: {fileID: 1050092340428238674, guid: 1e00ce0005a8d7842a365419b75ab089, type: 3}
       propertyPath: m_Materials.Array.data[0]
