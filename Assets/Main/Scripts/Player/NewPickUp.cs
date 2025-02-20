@@ -16,8 +16,6 @@ namespace Main.Scripts.Player
         private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
         private GameObject heldObj; //object which we pick up
         private Rigidbody heldObjRb; //rigidbody of object we pick up
-        private GameObject heldObjThrowable;
-        private Rigidbody heldObjRbThrowable;
         private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
         private int layerNumber; //layer index
         private List<GameObject> children = new List<GameObject>(); // list to store the child objects of the held object
@@ -58,7 +56,7 @@ namespace Main.Scripts.Player
                         }else if (hit.transform.gameObject.CompareTag("canPickUpWeapon")) //Checks if it is a Light object like cup, ball, etc
                         {
                             PickUpObjectWeapon(hit.transform.gameObject);
-                            TypeHeavy = false; TypeWeapon = true; 
+                            TypeHeavy = false; TypeWeapon = true; TypeThrowable = false;
                         }
                     }
                 }
@@ -68,16 +66,6 @@ namespace Main.Scripts.Player
                     {
                         StopClipping(); //prevents object from clipping through walls
                         DropObject();
-                    }
-                }
-
-                if (heldObjThrowable is null)
-                {
-                    RaycastHit hit;
-                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-                    {
-                        PickUpObjectThrowable(hit.transform.gameObject);
-                        TypeThrowable = true; //insert false statement into the new drop funstion (YET TO BE CRETED)
                     }
                 }
             }
@@ -151,30 +139,6 @@ namespace Main.Scripts.Player
                 }
             }
         }
-        void PickUpObjectThrowable(GameObject pickUpObj)
-        {
-            if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
-            {
-                heldObjThrowable = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-                heldObjRbThrowable = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
-                heldObjRbThrowable.isKinematic = true;
-                heldObjRbThrowable.transform.parent = holdPosHeavy.transform; //parent object to holdposition
-                heldObjThrowable.transform.localEulerAngles = new Vector3(90, 0, 0);
-                //Get all child objects of the object we are holding
-                foreach (Transform child in heldObjThrowable.transform)
-                {
-                    children.Add(child.gameObject);
-                }
-                foreach (GameObject child in children)
-                {
-                    child.layer = layerNumber;
-                }
-                
-                heldObjThrowable.layer = layerNumber; //change the object layer to the holdLayer
-                //make sure object doesnt collide with player, it can cause weird bugs
-                Physics.IgnoreCollision(heldObjThrowable.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
-            }
-        }
         
         #endregion
 
@@ -212,7 +176,7 @@ namespace Main.Scripts.Player
                 heldObj.transform.position = holdPos.transform.position;
             }else if (TypeThrowable)
             {
-                heldObjThrowable.transform.position = holdPos.transform.position;
+                
             }
         }
         void RotateObject()
