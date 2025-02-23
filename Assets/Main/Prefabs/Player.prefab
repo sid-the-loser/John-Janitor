@@ -382,37 +382,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8556354631775455389}
   m_LocalEulerAnglesHint: {x: -5.57, y: 0, z: 22.01}
---- !u!1 &8184312016762787936
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 542124893966923805}
-  m_Layer: 8
-  m_Name: holdPosThrowable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &542124893966923805
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8184312016762787936}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.484, y: -0.438, z: 1.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8556354631775455389}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8639020061274149024
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +397,6 @@ GameObject:
   - component: {fileID: 4933598509047021664}
   - component: {fileID: 7845570401169375992}
   - component: {fileID: 6608684504213625519}
-  - component: {fileID: 1327369375578294010}
   - component: {fileID: 6176494200459650847}
   m_Layer: 8
   m_Name: Main Camera
@@ -453,7 +421,6 @@ Transform:
   - {fileID: 2432681976246386969}
   - {fileID: 4965493855782477455}
   - {fileID: 9109532779947728769}
-  - {fileID: 542124893966923805}
   - {fileID: 9202810392494650068}
   - {fileID: 3603292476107071468}
   m_Father: {fileID: 2357128831913605238}
@@ -584,24 +551,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3159294460312658011}
   holdPos: {fileID: 4965493855782477455}
+  holdPosObj: {fileID: 4952436810400307442}
   holdPosHeavy: {fileID: 9202810392494650068}
   throwForce: 30
-  pickUpRange: 5
---- !u!114 &1327369375578294010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8639020061274149024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270ba18800f7b924aaa9fd11979c88d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 3159294460312658011}
-  holdPos: {fileID: 542124893966923805}
-  throwForce: 10
   pickUpRange: 5
 --- !u!114 &6176494200459650847
 MonoBehaviour:

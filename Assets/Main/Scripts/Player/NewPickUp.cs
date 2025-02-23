@@ -9,6 +9,8 @@ namespace Main.Scripts.Player
     {
         public GameObject player;
         public Transform holdPos;
+        public GameObject holdPosObj;
+        private static GameObject heldWeapon;
         public Transform holdPosHeavy;
         public float throwForce = 10f; //force at which the object is thrown at
         public float pickUpRange = 5f; //how far the player can pickup the object from
@@ -22,6 +24,8 @@ namespace Main.Scripts.Player
         
         private bool TypeHeavy = false;
         private bool TypeWeapon = false;
+
+        public static bool isWeaponHeld;
 
         //Reference to script which includes mouse movement of player (looking around)
         //we want to disable the player looking around when rotating the object
@@ -55,6 +59,7 @@ namespace Main.Scripts.Player
                         {
                             PickUpObjectWeapon(hit.transform.gameObject);
                             TypeHeavy = false; TypeWeapon = true;
+                            heldWeapon = holdPosObj;
                         }
                     }
                 }
@@ -236,6 +241,12 @@ namespace Main.Scripts.Player
                 heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
                 //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
             }
+        }
+
+        public static void SwapHeld()
+        {
+            heldWeapon.SetActive(!heldWeapon.activeSelf);
+            
         }
     }
 }

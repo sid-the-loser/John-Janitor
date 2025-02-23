@@ -17,7 +17,7 @@ namespace Main.Scripts.Player
         private new string name;
         
         private bool typeThrowable;
-        
+        private bool isThrowableHeld;
             
         
         void Start()
@@ -66,11 +66,11 @@ namespace Main.Scripts.Player
             {
                 if (isThrowableHeld)
                 {
-                    !isThrowableHeld;
+                    isThrowableHeld = false;
                     if (heldObj != null) heldObj.SetActive(false);
                 }else if (NewPickUp.isWeaponHeld)
                 {
-                    !NewPickUp.isWeaponHeld;
+                    NewPickUp.isWeaponHeld = false;
                     NewPickUp.SwapHeld();
                 }
             }
