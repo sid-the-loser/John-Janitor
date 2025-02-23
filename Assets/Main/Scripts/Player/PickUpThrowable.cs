@@ -18,7 +18,7 @@ namespace Main.Scripts.Player
         
         private bool typeThrowable;
         
-        
+            
         
         void Start()
         {
