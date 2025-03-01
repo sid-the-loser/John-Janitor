@@ -40,7 +40,7 @@ namespace Main.Scripts.Player
                         {
                             //pass in object hit into the PickUpObjectHeavy function
                             PickUpObjectThrowable(hit.transform.gameObject);
-                            typeThrowable = false;
+                            typeThrowable = true;
                         }
                     }
                 }
@@ -49,8 +49,14 @@ namespace Main.Scripts.Player
                     if(canDrop)
                     {
                         StopClipping(); //prevents object from clipping through walls
-                        DropObject();
                     }
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (canDrop)
+                {
+                    DropObject();
                 }
             }
             if (heldObj is not null) //if player is holding object

@@ -68,9 +68,12 @@ namespace Main.Scripts.Player
                     if(canDrop == true)
                     {
                         StopClipping(); //prevents object from clipping through walls
-                        DropObject();
                     }
                 }
+            }
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
+                DropObject();
             }
             if (heldObj is not null) //if player is holding object
             {
