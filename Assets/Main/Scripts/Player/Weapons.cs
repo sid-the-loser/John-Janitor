@@ -12,10 +12,10 @@ public class Weapons : MonoBehaviour
      4 - Broom
      5 - Mop
      6 - WetFloorSign
-     7 - FireExtinguisher
-     8 - CleaningSprayBottles
+     7 - FireExtinguisher (Ranged)
+     8 - CleaningSprayBottles (Ranged)
      9 - CleaningGloves
-     10 - Stapler
+     10 - Stapler  (Ranged)
      11 - OfficePhone
      12 - Ladder
 
