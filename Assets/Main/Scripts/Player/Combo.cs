@@ -40,7 +40,13 @@ namespace Main.Scripts.Player
 
         private void Update()
         {
-            timer = timer - Time.deltaTime; //updates time since last combo update
+            var _count = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            if (_count >= 1)
+            {
+                timer = timer - Time.deltaTime; //updates time since last combo update
+            }
+            
             if (timer <= 0) //when player runs out of combo timer
             {
                 combo = 0; //resets combo
