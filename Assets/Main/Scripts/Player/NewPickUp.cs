@@ -15,7 +15,7 @@ namespace Main.Scripts.Player
         public float throwForce = 10f; //force at which the object is thrown at
         public float pickUpRange = 5f; //how far the player can pickup the object from
         private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
-        private GameObject heldObj; //object which we pick up
+        public static GameObject heldObj; //object which we pick up
         private Rigidbody heldObjRb; //rigidbody of object we pick up
         private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
         private int layerNumber; //layer index
@@ -54,12 +54,15 @@ namespace Main.Scripts.Player
                             //pass in object hit into the PickUpObjectHeavy function
                             PickUpObjectHeavy(hit.transform.gameObject);
                             TypeHeavy = true; TypeWeapon = false;
+                            isWeaponHeld = true;
+                            PickUpThrowable.isThrowableHeld = false;
                             
                         }else if (hit.transform.gameObject.CompareTag("canPickUpWeapon")) //Checks if it is a Light object like cup, ball, etc
                         {
                             PickUpObjectWeapon(hit.transform.gameObject);
                             TypeHeavy = false; TypeWeapon = true;
-                            heldWeapon = holdPosObj;
+                            isWeaponHeld = true;
+                            PickUpThrowable.isThrowableHeld = false;
                         }
                     }
                 }
@@ -71,20 +74,19 @@ namespace Main.Scripts.Player
                     }
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                DropObject();
-            }
             if (heldObj is not null) //if player is holding object
             {
                 MoveObject(); //keep object position at holdPos
                 RotateObject();
-                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true && isWeaponHeld) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
                 {
                     StopClipping();
                     ThrowObject();
                 }
-
+                if (Input.GetKeyUp(KeyCode.Q) && isWeaponHeld)
+                {
+                    DropObject();
+                }
             }
         }
         
@@ -170,6 +172,7 @@ namespace Main.Scripts.Player
 
             name = null;
             heldObj = null; //undefine game object
+            isWeaponHeld = false;
         }
         void MoveObject()
         {
@@ -244,12 +247,6 @@ namespace Main.Scripts.Player
                 heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
                 //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
             }
-        }
-
-        public static void SwapHeld()
-        {
-            heldWeapon.SetActive(!heldWeapon.activeSelf);
-            
         }
     }
 }

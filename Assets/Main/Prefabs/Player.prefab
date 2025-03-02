@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 1526479314549119881}
   - component: {fileID: 7659567444256770435}
   - component: {fileID: 4933598509047021664}
-  - component: {fileID: 7845570401169375992}
   - component: {fileID: 6608684504213625519}
   - component: {fileID: 6176494200459650847}
   m_Layer: 8
@@ -524,19 +523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
---- !u!114 &7845570401169375992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8639020061274149024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a3921c47ee8284c910d95bf76780ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ColorLUTShader: {fileID: 2100000, guid: 83f47273f85ce0a41a03efae6d4158e9, type: 2}
 --- !u!114 &6608684504213625519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +540,7 @@ MonoBehaviour:
   holdPosObj: {fileID: 4952436810400307442}
   holdPosHeavy: {fileID: 9202810392494650068}
   throwForce: 30
-  pickUpRange: 5
+  pickUpRange: 10
 --- !u!114 &6176494200459650847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,8 +555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3159294460312658011}
   holdPos: {fileID: 9109532779947728769}
-  throwForce: 10
-  pickUpRange: 5
+  throwForce: 60
+  pickUpRange: 10
 --- !u!1 &8758418193911250886
 GameObject:
   m_ObjectHideFlags: 0

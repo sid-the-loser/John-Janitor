@@ -9,7 +9,7 @@ namespace Main.Scripts.Player
         public Transform holdPos;
         public float throwForce = 10f; //force at which the object is thrown at
         public float pickUpRange = 5f; //how far the player can pick up the object from
-        private GameObject heldObj; //object which we pick up
+        public static GameObject heldObj; //object which we pick up
         private Rigidbody heldObjRb; //rigidbody of object we pick up
         private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
         private int layerNumber; //layer index
@@ -17,7 +17,7 @@ namespace Main.Scripts.Player
         private new string name;
         
         private bool typeThrowable;
-        private bool isThrowableHeld;
+        public static bool isThrowableHeld;
             
         
         void Start()
@@ -41,6 +41,8 @@ namespace Main.Scripts.Player
                             //pass in object hit into the PickUpObjectHeavy function
                             PickUpObjectThrowable(hit.transform.gameObject);
                             typeThrowable = true;
+                            isThrowableHeld = true;
+                            NewPickUp.isWeaponHeld = false;
                         }
                     }
                 }
@@ -52,20 +54,20 @@ namespace Main.Scripts.Player
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (canDrop)
-                {
-                    DropObject();
-                }
-            }
             if (heldObj is not null) //if player is holding object
             {
                 MoveObject(); //keep object position at holdPos
-                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop) //Mouse 0 (left click) is used to throw, change this if you want another button to be used)
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop && isThrowableHeld) //Mouse 0 (left click) is used to throw, change this if you want another button to be used)
                 {
                     StopClipping();
                     ThrowObject();
+                }
+                if (Input.GetKeyDown(KeyCode.Q) && isThrowableHeld)
+                {
+                    if (canDrop)
+                    {
+                        DropObject();
+                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.G))
@@ -73,13 +75,30 @@ namespace Main.Scripts.Player
                 if (isThrowableHeld)
                 {
                     isThrowableHeld = false;
+                    NewPickUp.isWeaponHeld = true;
                     if (heldObj != null) heldObj.SetActive(false);
+                    if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(true);
                 }else if (NewPickUp.isWeaponHeld)
                 {
                     NewPickUp.isWeaponHeld = false;
-                    NewPickUp.SwapHeld();
+                    isThrowableHeld = true;
+                    if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(false);
+                    if (heldObj != null) heldObj.SetActive(true);
+                }else if (NewPickUp.heldObj)
+                {
+                    NewPickUp.isWeaponHeld = true;
+                    if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(true);
+                    if (heldObj != null) heldObj.SetActive(false);
+                }else if (heldObj)
+                {
+                    isThrowableHeld = true;
+                    if (heldObj != null) heldObj.SetActive(true);
+                    if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(false);
                 }
             }
+            
+            Debug.Log("Is throwable held: " + isThrowableHeld);
+            Debug.Log("Is weapon held: " + NewPickUp.isWeaponHeld);
         }
         
         #region Pickup Functions
@@ -107,6 +126,10 @@ namespace Main.Scripts.Player
                 //make sure object doesn't collide with player, it can cause weird bugs
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
 
+                if (NewPickUp.isWeaponHeld)
+                {
+                    if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(false);
+                }
             }
         }
         
@@ -134,6 +157,7 @@ namespace Main.Scripts.Player
 
             name = null;
             heldObj = null; //undefine game object
+            isThrowableHeld = false;
         }
         void MoveObject()
         {
@@ -159,6 +183,7 @@ namespace Main.Scripts.Player
                 heldObj.transform.parent = null;
                 heldObjRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
                 heldObj = null;
+                isThrowableHeld = false;
             }
         }
         void StopClipping() //function only called when dropping/throwing
