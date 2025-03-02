@@ -12,6 +12,7 @@ TagManager:
   - canPickUpWeapon
   - canLiftHeavy
   - Wall
+  - Spawner
   layers:
   - Default
   - TransparentFX
