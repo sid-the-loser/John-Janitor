@@ -35,5 +35,11 @@ namespace Main.Scripts.Common
         public static string PlayerElement { get; set; } // dont touch for now
         
         #endregion
+
+        #region Level Transition Related
+
+        public static int NextLevelIndex = 0;
+
+        #endregion
     }
 }

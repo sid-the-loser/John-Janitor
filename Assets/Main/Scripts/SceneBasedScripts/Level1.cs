@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Main.Scripts.Common;
 using Sid.Scripts.Player;
 using TMPro;
 using UnityEngine;
@@ -100,6 +101,7 @@ public class Level1 : MonoBehaviour
         Debug.Log("Level Transition");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        GlobalVariables.NextLevelIndex = 0;
         SceneManager.LoadScene(2);
     }
 
