@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class PopUpManager : MonoBehaviour
 {
-    [SerializeField] private string objectivePrefix = "Current objective:";
+    [SerializeField] private string objectivePrefix = "Current objective";
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private float objPopUpDelay = 5.0f;
     [SerializeField] private float objPopUpAnimationFadeIn = 10.0f;
