@@ -40,6 +40,8 @@ public class Level1 : MonoBehaviour
         _popUpManager = GameObject.FindObjectOfType<PopUpManager>();
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
         
+        _pastHealth = _playerStats.GetHealth();
+        
         dyingImage.color = new Color(1f, 1f, 1f, 0f);
         _popUpManager.SetObjective("Clean up the garbage!");
 
