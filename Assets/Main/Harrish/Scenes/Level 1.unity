@@ -15423,6 +15423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7364862771631696496, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.051
@@ -16943,7 +16947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2315862569103407939, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.44
+      value: -33.68
       objectReference: {fileID: 0}
     - target: {fileID: 2315862569103407939, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16991,11 +16995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Intensity
-      value: 3.38
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_SpotAngle
-      value: 60.693703
+      value: 88.003044
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Lightmapping
@@ -29496,7 +29500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 56fd038a3bed8ed4a8a9ff6c26e9e136, type: 2}
+  - {fileID: 2100000, guid: 7672951b837b4f54687a918cdc3d5e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30184,6 +30188,10 @@ PrefabInstance:
     - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_Name
       value: Door (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7364862771631696496, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31075,6 +31083,10 @@ PrefabInstance:
     - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_Name
       value: Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7364862771631696496, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49266,6 +49278,10 @@ PrefabInstance:
     - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407941551906397142, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3412726915090350278, guid: f9d6e5f34170d27439a69895356f63e4, type: 3}
       propertyPath: m_LocalPosition.x
