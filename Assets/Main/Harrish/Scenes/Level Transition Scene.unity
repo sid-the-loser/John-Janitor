@@ -1874,11 +1874,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b33a7f217f3a3c94db267132ad24dc9d, type: 3}
       propertyPath: m_LocalRotation.w
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       value: 0.99680626
-=======
-      value: 1
->>>>>>> Stashed changes
 =======
       value: 1
 >>>>>>> Stashed changes
@@ -1890,11 +1886,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b33a7f217f3a3c94db267132ad24dc9d, type: 3}
       propertyPath: m_LocalRotation.y
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       value: -0.07985779
-=======
-      value: 0
->>>>>>> Stashed changes
 =======
       value: 0
 >>>>>>> Stashed changes
@@ -1910,11 +1902,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b33a7f217f3a3c94db267132ad24dc9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       value: -369.161
-=======
-      value: 0
->>>>>>> Stashed changes
 =======
       value: 0
 >>>>>>> Stashed changes
@@ -1942,11 +1930,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b33a7f217f3a3c94db267132ad24dc9d, type: 3}
       insertIndex: -1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       addedObject: {fileID: 186960104}
-=======
-      addedObject: {fileID: 1186095009}
->>>>>>> Stashed changes
 =======
       addedObject: {fileID: 1186095009}
 >>>>>>> Stashed changes
