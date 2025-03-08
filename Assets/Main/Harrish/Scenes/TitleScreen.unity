@@ -4340,7 +4340,11 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b33a7f217f3a3c94db267132ad24dc9d, type: 3}
       propertyPath: m_LocalPosition.y
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       value: 1.48
+=======
+      value: 1.104
+>>>>>>> Stashed changes
 =======
       value: 1.104
 >>>>>>> Stashed changes
