@@ -204,53 +204,40 @@ namespace Main.Scripts.Player
         [SerializeField] private GameObject stapleBulletPrefab;
         [SerializeField] private Transform firePoint;
 
-        private float extinguisherFireRate = 0.1f;
+        private float extinguisherCooldown = 0.1f;
+        private float extinguisherCooldownTimer = 0f;
 
         private float sprayBottleCooldown = 0.5f;
         private int sprayPellets = 6;
         private float spraySpreadAngle = 5f;
-        private float sprayCooldownTimer = 0.35f;
+        private float sprayCooldownTimer = 0f;
 
         private float staplerCooldown = 0.5f;
-        private float staplerCooldownTimer = 0.2f;
+        private float staplerCooldownTimer = 0f;
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !isExtinguisherHeld)
+            if (Input.GetMouseButton(0) && extinguisherCooldownTimer <= 0 && isExtinguisherHeld)
             {
-                StartCoroutine(FireExtinguisher());
+                FireProjectile(extinguisherBulletPrefab, 15f);
+                extinguisherCooldownTimer = extinguisherCooldown;
             }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                StopCoroutine(FireExtinguisher());
-                isExtinguisherHeld = false;
-            }
-            
-            if (Input.GetMouseButtonDown(0) && sprayCooldownTimer <= 0 && !isSprayBottleHeld)
+            if (Input.GetMouseButtonDown(0) && sprayCooldownTimer <= 0 && isSprayBottleHeld)
             {
                 FireSprayBottle();
                 sprayCooldownTimer = sprayBottleCooldown;
             }
             
-            if (Input.GetMouseButtonDown(0) && staplerCooldownTimer <= 0 && !isStaplerHeld)
+            if (Input.GetMouseButtonDown(0) && staplerCooldownTimer <= 0 && isStaplerHeld)
             {
-                FireStapler();
+                FireProjectile(stapleBulletPrefab, 20f);
                 staplerCooldownTimer = staplerCooldown;
             }
-            
+
+            if (extinguisherCooldownTimer > 0) extinguisherCooldownTimer -= Time.deltaTime;
             if (sprayCooldownTimer > 0) sprayCooldownTimer -= Time.deltaTime;
             if (staplerCooldownTimer > 0) staplerCooldownTimer -= Time.deltaTime;
-        }
-
-        private IEnumerator FireExtinguisher()
-        {
-            isExtinguisherHeld = true;
-            while (isExtinguisherHeld)
-            {
-                FireProjectile(extinguisherBulletPrefab, 15f);
-                yield return new WaitForSeconds(extinguisherFireRate);
-            }
         }
 
         void FireSprayBottle()
@@ -261,11 +248,6 @@ namespace Main.Scripts.Player
                 Quaternion pelletRotation = Quaternion.Euler(0, spread, 0) * firePoint.rotation;
                 FireProjectile(sprayBottleBulletPrefab, 10f, pelletRotation);
             }
-        }
-
-        void FireStapler()
-        {
-            FireProjectile(stapleBulletPrefab, 20f);
         }
 
         void FireProjectile(GameObject projectilePrefab, float speed, Quaternion? overrideRotation = null)
