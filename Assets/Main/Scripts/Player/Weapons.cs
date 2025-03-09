@@ -207,9 +207,8 @@ namespace Main.Scripts.Player
         private float extinguisherCooldown = 0.1f;
         private float extinguisherCooldownTimer = 0f;
 
-        private float sprayBottleCooldown = 0.5f;
+        private float sprayBottleCooldown = 0.25f;
         private int sprayPellets = 6;
-        private float spraySpreadAngle = 5f;
         private float sprayCooldownTimer = 0f;
 
         private float staplerCooldown = 0.5f;
@@ -219,19 +218,30 @@ namespace Main.Scripts.Player
         {
             if (Input.GetMouseButton(0) && extinguisherCooldownTimer <= 0 && isExtinguisherHeld)
             {
-                FireProjectile(extinguisherBulletPrefab, 15f);
+                FireProjectile(extinguisherBulletPrefab, 25f);
                 extinguisherCooldownTimer = extinguisherCooldown;
             }
 
-            if (Input.GetMouseButtonDown(0) && sprayCooldownTimer <= 0 && isSprayBottleHeld)
+            if (Input.GetMouseButton(0) && sprayCooldownTimer <= 0 && isSprayBottleHeld)
             {
-                FireSprayBottle();
+                for (int i = 0; i < sprayPellets; i++)
+                {
+                    Vector3 randomOffset = new Vector3(
+                        0,
+                        Random.Range(-0.5f, 0.5f),
+                        Random.Range(-0.5f, 0.5f)
+                    );
+                    
+                    Vector3 spawnPosition = firePoint.position + randomOffset;
+                    
+                    FireProjectile(sprayBottleBulletPrefab, 20f, spawnPosition);
+                }
                 sprayCooldownTimer = sprayBottleCooldown;
             }
             
-            if (Input.GetMouseButtonDown(0) && staplerCooldownTimer <= 0 && isStaplerHeld)
+            if (Input.GetMouseButton(0) && staplerCooldownTimer <= 0 && isStaplerHeld)
             {
-                FireProjectile(stapleBulletPrefab, 20f);
+                FireProjectile(stapleBulletPrefab, 30f);
                 staplerCooldownTimer = staplerCooldown;
             }
 
@@ -240,22 +250,12 @@ namespace Main.Scripts.Player
             if (staplerCooldownTimer > 0) staplerCooldownTimer -= Time.deltaTime;
         }
 
-        void FireSprayBottle()
-        {
-            for (int i = 0; i < sprayPellets; i++)
-            {
-                float spread = Random.Range(-spraySpreadAngle, spraySpreadAngle);
-                Quaternion pelletRotation = Quaternion.Euler(0, spread, 0) * firePoint.rotation;
-                FireProjectile(sprayBottleBulletPrefab, 10f, pelletRotation);
-            }
-        }
-
-        void FireProjectile(GameObject projectilePrefab, float speed, Quaternion? overrideRotation = null)
+        void FireProjectile(GameObject projectilePrefab, float speed, Vector3? overridePosition = null)
         {
             if (projectilePrefab)
             {
-                Quaternion spawnRotation = overrideRotation ?? firePoint.rotation;
-                GameObject projectile = Instantiate(projectilePrefab, firePoint.position, spawnRotation);
+                Vector3 spawnPosition = overridePosition ?? firePoint.position;
+                GameObject projectile = Instantiate(projectilePrefab, spawnPosition, firePoint.rotation);
                 Rigidbody rb = projectile.GetComponent<Rigidbody>();
                 if (rb)
                 {

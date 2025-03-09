@@ -272,7 +272,7 @@ namespace Main.Scripts.Player
             {
                 Weapons.UpgradeStats(7);
             }
-            else if (name == "cleaningSprayBottles")
+            else if (name == "sprayBottle")
             {
                 Weapons.UpgradeStats(8);
             }
@@ -324,7 +324,7 @@ namespace Main.Scripts.Player
             {
                 Weapons.ResetStats(7);
             }
-            else if (name == "cleaningSprayBottles")
+            else if (name == "sprayBottle")
             {
                 Weapons.ResetStats(8);
             }

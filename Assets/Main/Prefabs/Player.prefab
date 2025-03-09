@@ -97,7 +97,7 @@ Transform:
   m_Children:
   - {fileID: 8556354631775455389}
   m_Father: {fileID: 1167781002090833655}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.662, y: 0, z: 0}
 --- !u!1 &1215491739168537770
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 3509323685784068311}
   - component: {fileID: 4789446938111163291}
   - component: {fileID: 4535148546787018816}
+  - component: {fileID: 4973556304621434858}
+  - component: {fileID: 3550498021268558115}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -320,6 +322,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeCoolDown: 0.75
   meleeRange: 5
+--- !u!114 &4973556304621434858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159294460312658011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a43ea72a482ab42913637ee4b84743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3550498021268558115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159294460312658011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b34f455e05617140a599c1f9589b56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extinguisherBulletPrefab: {fileID: 2832818003347860604, guid: d64c6b79b2c641542be314a64ee9bd36, type: 3}
+  sprayBottleBulletPrefab: {fileID: 2832818003347860604, guid: ba37c5550ec3ef742b4b73c005fa0313, type: 3}
+  stapleBulletPrefab: {fileID: 2832818003347860604, guid: d64c6b79b2c641542be314a64ee9bd36, type: 3}
+  firePoint: {fileID: 3570506908081022289}
 --- !u!1 &4952436810400307442
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +381,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8556354631775455389}
   m_LocalEulerAnglesHint: {x: -5.57, y: 0, z: 22.01}
+--- !u!1 &5532676018006394976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3570506908081022289}
+  m_Layer: 8
+  m_Name: BulletSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3570506908081022289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532676018006394976}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.563, y: -0.465, z: 3.533}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8556354631775455389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5884900267278068842
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +458,8 @@ GameObject:
   - component: {fileID: 4933598509047021664}
   - component: {fileID: 6608684504213625519}
   - component: {fileID: 6176494200459650847}
+  - component: {fileID: 8963352729003684752}
+  - component: {fileID: 3362067230337532714}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -418,6 +481,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2432681976246386969}
+  - {fileID: 3570506908081022289}
   - {fileID: 4965493855782477455}
   - {fileID: 9109532779947728769}
   - {fileID: 9202810392494650068}
@@ -539,7 +603,7 @@ MonoBehaviour:
   holdPos: {fileID: 4965493855782477455}
   holdPosObj: {fileID: 4952436810400307442}
   holdPosHeavy: {fileID: 9202810392494650068}
-  throwForce: 30
+  throwForce: 25
   pickUpRange: 10
 --- !u!114 &6176494200459650847
 MonoBehaviour:
@@ -557,6 +621,83 @@ MonoBehaviour:
   holdPos: {fileID: 9109532779947728769}
   throwForce: 60
   pickUpRange: 10
+--- !u!114 &8963352729003684752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639020061274149024}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: a00c6c81b9bc79b449df68e45ff6f437, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 0.6
+  priority: 0
+--- !u!114 &3362067230337532714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639020061274149024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &8758418193911250886
 GameObject:
   m_ObjectHideFlags: 0

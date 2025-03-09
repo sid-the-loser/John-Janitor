@@ -19,7 +19,7 @@ namespace Main.Scripts.Player
         {
             cooldown = 20;
             timeActive = 2.5f;
-            cdTimer = cooldown;
+            cdTimer = 0;
             
             layerNumber = LayerMask.NameToLayer("holdLayer");
         }
@@ -33,7 +33,6 @@ namespace Main.Scripts.Player
             
             if (Input.GetKeyDown(KeyCode.X) && cdTimer <= 0)
             {
-                FindEnemies();
                 StartCoroutine(ChangeLayers());
             }
         }
@@ -58,6 +57,7 @@ namespace Main.Scripts.Player
 
         private IEnumerator ChangeLayers()
         {
+            FindEnemies();
             foreach (GameObject child in enemyChildren)
             {
                 child.layer = layerNumber;
@@ -65,6 +65,7 @@ namespace Main.Scripts.Player
             
             yield return new WaitForSeconds(timeActive);
             
+            FindEnemies();
             foreach (GameObject child in enemyChildren)
             {
                 child.layer = 0;
