@@ -140,11 +140,7 @@ namespace Main.Scripts.Player
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
 
                 name = heldObj.name;
-
-                if (name == "toiletBrush")
-                {
-                    Weapons.UpgradeStats(1);
-                }
+                UpdatingStats(name);
             }
         }
         
@@ -165,10 +161,7 @@ namespace Main.Scripts.Player
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //unparent object
             
-            if (name == "toiletBrush")
-            {
-                Weapons.ResetStats(1);
-            }
+            ResetingStats(name);
 
             name = null;
             heldObj = null; //undefine game object
@@ -246,6 +239,110 @@ namespace Main.Scripts.Player
                 //change object position to camera position 
                 heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
                 //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
+            }
+        }
+
+        private static void UpdatingStats(string name)
+        {
+            if (name == "toiletBrush")
+            {
+                Weapons.UpgradeStats(1);
+            }
+            else if (name == "plunger")
+            {
+                Weapons.UpgradeStats(2);
+            }
+            else if (name == "featherDuster")
+            {
+                Weapons.UpgradeStats(3);
+            }
+            else if (name == "broom")
+            {
+                Weapons.UpgradeStats(4);
+            }
+            else if (name == "mop")
+            {
+                Weapons.UpgradeStats(5);
+            }
+            else if (name == "werFloorSign")
+            {
+                Weapons.UpgradeStats(6);
+            }
+            else if (name == "fireExtinguisher")
+            {
+                Weapons.UpgradeStats(7);
+            }
+            else if (name == "cleaningSprayBottles")
+            {
+                Weapons.UpgradeStats(8);
+            }
+            else if (name == "cleaningGloves")
+            {
+                Weapons.UpgradeStats(9);
+            }
+            else if (name == "stapler")
+            {
+                Weapons.UpgradeStats(10);
+            }
+            else if (name == "officePhone")
+            {
+                Weapons.UpgradeStats(11);
+            }
+            else if (name == "ladder")
+            {
+                Weapons.UpgradeStats(12);
+            }
+        }
+
+        private void ResetingStats(string name)
+        {
+            if (name == "toiletBrush")
+            {
+                Weapons.ResetStats(1);
+            }
+            else if (name == "plunger")
+            {
+                Weapons.ResetStats(2);
+            }
+            else if (name == "featherDuster")
+            {
+                Weapons.ResetStats(3);
+            }
+            else if (name == "broom")
+            {
+                Weapons.ResetStats(4);
+            }
+            else if (name == "mop")
+            {
+                Weapons.ResetStats(5);
+            }
+            else if (name == "werFloorSign")
+            {
+                Weapons.ResetStats(6);
+            }
+            else if (name == "fireExtinguisher")
+            {
+                Weapons.ResetStats(7);
+            }
+            else if (name == "cleaningSprayBottles")
+            {
+                Weapons.ResetStats(8);
+            }
+            else if (name == "cleaningGloves")
+            {
+                Weapons.ResetStats(9);
+            }
+            else if (name == "stapler")
+            {
+                Weapons.ResetStats(10);
+            }
+            else if (name == "officePhone")
+            {
+                Weapons.ResetStats(11);
+            }
+            else if (name == "ladder")
+            {
+                Weapons.ResetStats(12);
             }
         }
     }
