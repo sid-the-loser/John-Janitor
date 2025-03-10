@@ -61,7 +61,7 @@ public class Level1 : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
 
         if (_playerStats.GetHealth() != _pastHealth)
