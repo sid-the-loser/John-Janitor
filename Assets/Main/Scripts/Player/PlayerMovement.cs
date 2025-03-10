@@ -23,6 +23,8 @@ namespace Sid.Scripts.Player
         // [SerializeField] private float gravity = -9.8f; // No need since we are using a rigidbody
         [SerializeField] private LayerMask groundMask;
         
+        [SerializeField] private Animator animator;
+        
         // private float _currentSpeed = 5.0f; // We don't need it fam, we ain't sprinting
         private Vector3 _direction = Vector3.zero;
         private Vector3 _inputDirection = Vector3.zero;
@@ -66,6 +68,8 @@ namespace Sid.Scripts.Player
             // syncing head rotation
             _headRotationX = headObject.transform.localEulerAngles.x;
             _headRotationY = transform.localEulerAngles.y;
+            
+            animator.SetBool("isJogging", false);
 
             if (Application.isEditor)
                 // DEV LOG (2:00 am : 02-Oct-2024)
@@ -110,6 +114,15 @@ namespace Sid.Scripts.Player
                 
                 UpdateInputDirectionWASD();
                 _direction = Vector3.Lerp(_direction, (transform.rotation * _inputDirection).normalized, Time.deltaTime * lerpSpeed);
+
+                if (_inputDirection == Vector3.zero)
+                {
+                    animator.SetBool("isJogging", false);
+                }
+                else
+                {
+                    animator.SetBool("isJogging", true);
+                }
 
                 if (_direction != Vector3.zero)
                 {

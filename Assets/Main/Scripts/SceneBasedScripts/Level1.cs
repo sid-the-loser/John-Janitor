@@ -26,6 +26,7 @@ public class Level1 : MonoBehaviour
     private bool _levelPassed;
 
     private float _pastHealth;
+    private bool _firstDamageTick = true;
     
     private void Awake()
     {
@@ -59,12 +60,17 @@ public class Level1 : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
 
-        if (_playerStats.GetHealth() != _pastHealth)
+        if (_playerStats.GetHealth() != _pastHealth && !_firstDamageTick)
         {
             StartCoroutine(DamageEffect());
+            _pastHealth = _playerStats.GetHealth();
+        }
+        else if (_firstDamageTick)
+        {
+            _firstDamageTick = false;
             _pastHealth = _playerStats.GetHealth();
         }
 
