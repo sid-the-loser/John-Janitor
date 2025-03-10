@@ -26,6 +26,7 @@ public class Level1 : MonoBehaviour
     private bool _levelPassed;
 
     private float _pastHealth;
+    private bool _firstDamageTick = true;
     
     private void Awake()
     {
@@ -39,8 +40,6 @@ public class Level1 : MonoBehaviour
         _playerStats = _playerObject.GetComponent<StatsBehaviour>();
         _popUpManager = GameObject.FindObjectOfType<PopUpManager>();
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
-        
-        _pastHealth = _playerStats.GetHealth();
         
         dyingImage.color = new Color(1f, 1f, 1f, 0f);
         _popUpManager.SetObjective("Clean up the garbage!");
@@ -64,9 +63,14 @@ public class Level1 : MonoBehaviour
             SceneManager.LoadScene(3);
         }
 
-        if (_playerStats.GetHealth() != _pastHealth)
+        if (_playerStats.GetHealth() != _pastHealth && !_firstDamageTick)
         {
             StartCoroutine(DamageEffect());
+            _pastHealth = _playerStats.GetHealth();
+        }
+        else if (_firstDamageTick)
+        {
+            _firstDamageTick = false;
             _pastHealth = _playerStats.GetHealth();
         }
 
