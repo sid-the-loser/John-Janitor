@@ -20,6 +20,11 @@ public class endingmenumanager : MonoBehaviour
         private const string ErrorMessage = "error";
         
         #endregion
+        [Header("Level Prefabs")]
+        [SerializeField] private GameObject[] levelPrefabs;
+    
+        private Queue<Scene> loadedScenes = new Queue<Scene>();
+        private int levelIndex = 1;
         
         #endregion
 
@@ -120,7 +125,8 @@ public class endingmenumanager : MonoBehaviour
             //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[0].text);
             DeactivateCardDropDown();
-            SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
+            levelIndex = GlobalVariables.NextLevelIndex;
+            LoadNextLevel();
             //StartCoroutine(startDialogue());
         }
         public void SelectedCardMiddle()
@@ -128,7 +134,8 @@ public class endingmenumanager : MonoBehaviour
             //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[1].text);
             DeactivateCardDropDown();
-            SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
+            levelIndex = GlobalVariables.NextLevelIndex;
+            LoadNextLevel();
             //StartCoroutine(startDialogue());
         }
         public void SelectedCardRight()
@@ -136,7 +143,8 @@ public class endingmenumanager : MonoBehaviour
             //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[2].text);
             DeactivateCardDropDown();
-            SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
+            levelIndex = GlobalVariables.NextLevelIndex;
+            LoadNextLevel();
             //StartCoroutine(startDialogue());
         }
         private void ChangeStats(string pickedOption)
@@ -198,5 +206,24 @@ public class endingmenumanager : MonoBehaviour
 
         SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
     }
+    
+    void LoadNextLevel()
+    {
+        Scene newScene = SceneManager.CreateScene("Level_" + levelIndex);
+        SceneManager.SetActiveScene(newScene);
+        Instantiate(levelPrefabs[RandomLevelGrabber()], Vector3.zero, Quaternion.identity);
 
+        loadedScenes.Enqueue(newScene);
+        if (loadedScenes.Count > 2) // Assuming you want to keep only a certain number of segments loaded
+        {
+            SceneManager.UnloadSceneAsync(loadedScenes.Dequeue());
+        }
+
+        GlobalVariables.NextLevelIndex++;
+    }
+
+    private int RandomLevelGrabber()
+    {
+        return Random.Range(0, levelPrefabs.Length);
+    }
 }

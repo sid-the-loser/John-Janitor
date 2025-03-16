@@ -218,7 +218,7 @@ namespace Main.Scripts.Player
         {
             if (Input.GetMouseButton(0) && extinguisherCooldownTimer <= 0 && isExtinguisherHeld)
             {
-                FireProjectile(extinguisherBulletPrefab, 25f);
+                FireProjectile(extinguisherBulletPrefab, 50f);
                 extinguisherCooldownTimer = extinguisherCooldown;
             }
 
@@ -234,14 +234,14 @@ namespace Main.Scripts.Player
                     
                     Vector3 spawnPosition = firePoint.position + randomOffset;
                     
-                    FireProjectile(sprayBottleBulletPrefab, 20f, spawnPosition);
+                    FireProjectile(sprayBottleBulletPrefab, 40f, spawnPosition);
                 }
                 sprayCooldownTimer = sprayBottleCooldown;
             }
             
             if (Input.GetMouseButton(0) && staplerCooldownTimer <= 0 && isStaplerHeld)
             {
-                FireProjectile(stapleBulletPrefab, 30f);
+                FireProjectile(stapleBulletPrefab, 60f);
                 staplerCooldownTimer = staplerCooldown;
             }
 
