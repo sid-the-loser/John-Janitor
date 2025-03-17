@@ -128,8 +128,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
-        levelIndex = GlobalVariables.NextLevelIndex;
-        LoadNextLevel();
+        RandomLevelShit();
         //StartCoroutine(startDialogue());
     }
 
@@ -138,8 +137,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
-        levelIndex = GlobalVariables.NextLevelIndex;
-        LoadNextLevel();
+        RandomLevelShit();
         //StartCoroutine(startDialogue());
     }
 
@@ -148,8 +146,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
-        levelIndex = GlobalVariables.NextLevelIndex;
-        LoadNextLevel();
+        RandomLevelShit();
         //StartCoroutine(startDialogue());
     }
 
@@ -232,5 +229,14 @@ public class endingmenumanager : MonoBehaviour
     private int RandomLevelGrabber()
     {
         return Random.Range(0, levelPrefabs.Length);
+    }
+
+    private void RandomLevelShit()
+    {
+        levelIndex = GlobalVariables.NextLevelIndex;
+        Level1._levelPassed = false;
+        LoadNextLevel();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

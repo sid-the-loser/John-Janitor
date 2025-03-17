@@ -37,7 +37,6 @@ namespace Main.Scripts.Player
             combo = 0;
             GetBaseStats(); //gets base player stats
             
-            DontDestroyOnLoad(this.gameObject);
         }
 
         private void Update()
