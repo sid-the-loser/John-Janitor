@@ -130,7 +130,6 @@ public class endingmenumanager : MonoBehaviour
         DeactivateCardDropDown();
         levelIndex = GlobalVariables.NextLevelIndex;
         LoadNextLevel();
-        DeactivateScene();
         //StartCoroutine(startDialogue());
     }
 
@@ -141,7 +140,6 @@ public class endingmenumanager : MonoBehaviour
         DeactivateCardDropDown();
         levelIndex = GlobalVariables.NextLevelIndex;
         LoadNextLevel();
-        DeactivateScene();
         //StartCoroutine(startDialogue());
     }
 
@@ -152,7 +150,6 @@ public class endingmenumanager : MonoBehaviour
         DeactivateCardDropDown();
         levelIndex = GlobalVariables.NextLevelIndex;
         LoadNextLevel();
-        DeactivateScene();
         //StartCoroutine(startDialogue());
     }
 
@@ -235,18 +232,5 @@ public class endingmenumanager : MonoBehaviour
     private int RandomLevelGrabber()
     {
         return Random.Range(0, levelPrefabs.Length);
-    }
-    
-    public void DeactivateScene()
-    {
-        Scene scene = SceneManager.GetSceneByName("Level Transition Scene");
-        if (scene.isLoaded)
-        {
-            GameObject[] rootObjects = scene.GetRootGameObjects();
-            foreach (GameObject obj in rootObjects)
-            {
-                obj.SetActive(false);
-            }
-        }
     }
 }
