@@ -36,6 +36,7 @@ namespace Main.Scripts.Player
             timer = reset;
             combo = 0;
             GetBaseStats(); //gets base player stats
+            
         }
 
         private void Update()
