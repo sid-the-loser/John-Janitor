@@ -38,7 +38,7 @@ namespace Main.Scripts.Common
 
         #region Level Transition Related
 
-        public static int NextLevelIndex = 0;
+        public static int NextLevelIndex = 1;
 
         #endregion
     }

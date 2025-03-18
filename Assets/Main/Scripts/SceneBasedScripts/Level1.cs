@@ -23,7 +23,7 @@ public class Level1 : MonoBehaviour
     
     private bool _deathTriggered;
 
-    private bool _levelPassed;
+    public static bool _levelPassed;
 
     private float _pastHealth;
     private bool _firstDamageTick = true;
