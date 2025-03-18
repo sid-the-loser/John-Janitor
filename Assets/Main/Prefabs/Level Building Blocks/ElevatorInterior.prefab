@@ -450,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6027247697330921110
 Transform:
   m_ObjectHideFlags: 0
@@ -477,14 +477,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9159315, b: 0.8160377, a: 1}
-  m_Intensity: 1.53
-  m_Range: 15.884684
-  m_SpotAngle: 137.82834
-  m_InnerSpotAngle: 21.80208
+  m_Color: {r: 1, g: 0.9581683, b: 0.9198113, a: 1}
+  m_Intensity: 1.75
+  m_Range: 21.063671
+  m_SpotAngle: 165.73195
+  m_InnerSpotAngle: 4.153345
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -659,7 +659,7 @@ PrefabInstance:
     - target: {fileID: -6093592463355912122, guid: 54a77734deaca65428b050a7957738ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 040fa77d4acb43a4cb00cad639a2c2f7, type: 2}
+      objectReference: {fileID: 2100000, guid: 5be65abca2ed7d149aee272dec7150bb, type: 2}
     - target: {fileID: -5502833357485856539, guid: 54a77734deaca65428b050a7957738ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
