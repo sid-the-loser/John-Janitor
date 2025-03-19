@@ -22,25 +22,22 @@ namespace Udey.Scripts
         private LayerMask enemyLayer;
         private RaycastHit otherHit;
 
-        private void Start()
-        {
-            camera = Camera.main;
-        }
-
         void Update()
         {
             if (Input.GetMouseButton(0) && !meleeOnCooldown)
             {
+                camera = Camera.main;
+                
                 if (camera)
                 {
                     camPos = camera.transform.position;
-
+                    
+                    Debug.DrawRay(camPos, camera.transform.TransformDirection(Vector3.forward) * 10f, Color.red, 5);
                     if (Physics.Raycast(camPos, camera.transform.forward, out var hit, 10f))
                     {
                         otherHit = hit;
                         if (hit.transform.CompareTag("Enemy"))
                         {
-                            StartCoroutine(FlashColor(hit.transform.gameObject));
                             StartCoroutine(OnDestory());
                             StartCoroutine(MeleeCooldown());
                         }
@@ -59,14 +56,6 @@ namespace Udey.Scripts
             AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Swing, this.transform.position);
             yield return new WaitForSeconds(0.2f); // Wait for 0.1 seconds
             // image.transform.Rotate(0, 0, -25); // Rotate image back to normal
-        }
-
-        private IEnumerator FlashColor(GameObject hit)
-        {
-            hit.GetComponent<Renderer>().material.SetColor("_RimColor", Color.white);
-            yield return new WaitForSeconds(0.1f);
-            hit.GetComponent<Renderer>().material.SetColor("_RimColor", new Color32(128, 0, 0, 0));
-            yield return new WaitForSeconds(0.1f);
         }
 
         private IEnumerator OnDestory()

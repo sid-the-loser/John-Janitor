@@ -128,7 +128,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
@@ -137,7 +137,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
@@ -146,7 +146,7 @@ public class endingmenumanager : MonoBehaviour
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
@@ -231,12 +231,38 @@ public class endingmenumanager : MonoBehaviour
         return Random.Range(0, levelPrefabs.Length);
     }
 
-    private void RandomLevelShit()
+    private void GoToNextLevel()
     {
         levelIndex = GlobalVariables.NextLevelIndex;
         Level1._levelPassed = false;
+        DeactivateScene("Level Transition Scene");
         LoadNextLevel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+    public static void DeactivateScene(string sceneName)
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        if (scene.isLoaded)
+        {
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
+    }
+
+    public static void ActivateScene(string sceneName)
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        if (scene.isLoaded)
+        {
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
     }
 }

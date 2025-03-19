@@ -96,9 +96,6 @@ namespace Main.Scripts.Player
                     if (NewPickUp.heldObj != null) NewPickUp.heldObj.SetActive(false);
                 }
             }
-            
-            Debug.Log("Is throwable held: " + isThrowableHeld);
-            Debug.Log("Is weapon held: " + NewPickUp.isWeaponHeld);
         }
         
         #region Pickup Functions
