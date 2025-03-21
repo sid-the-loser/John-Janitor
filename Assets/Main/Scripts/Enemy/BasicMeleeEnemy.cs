@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using FMOD.Studio;
 using Main.Scripts.Common;
+using Main.Scripts.Sound;
 using Sid.Scripts.Player;
 using Sound.Scripts.Sound;
 using UnityEngine;

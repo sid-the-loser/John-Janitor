@@ -3442,153 +3442,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000018, y: 0.02, z: 0.020000001}
   m_Center: {x: -0.0000009536743, y: 0, z: -0.00000011920929}
---- !u!1 &383140744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 383140745}
-  - component: {fileID: 383140746}
-  m_Layer: 0
-  m_Name: FmodEvent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &383140745
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383140744}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1643107137}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &383140746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383140744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8414a9b99b72fa3499a74d2adc80958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Music>k__BackingField:
-    Guid:
-      Data1: 1974431080
-      Data2: 1149713798
-      Data3: -33501509
-      Data4: -1120830776
-    Path: event:/Music/Music
-  <Walk>k__BackingField:
-    Guid:
-      Data1: 397851058
-      Data2: 1080139480
-      Data3: 1936279994
-      Data4: -298899085
-    Path: event:/Character Noises/Movement/Walking
-  <Throw>k__BackingField:
-    Guid:
-      Data1: -535823028
-      Data2: 1339681358
-      Data3: -1015064181
-      Data4: -704266296
-    Path: event:/Character Noises/Weapon/Throw
-  <Swing>k__BackingField:
-    Guid:
-      Data1: -343728985
-      Data2: 1095942870
-      Data3: -148957549
-      Data4: 1685853086
-    Path: event:/Character Noises/Weapon/Swing
-  <DeathSound>k__BackingField:
-    Guid:
-      Data1: -2027091958
-      Data2: 1193458681
-      Data3: -779741777
-      Data4: -1159706397
-    Path: event:/Character Noises/Injuries/Death Sound
-  <HurtSounds>k__BackingField:
-    Guid:
-      Data1: 13344939
-      Data2: 1202832754
-      Data3: 796788152
-      Data4: 1022645905
-    Path: event:/Character Noises/Injuries/Get Hit
-  <Rain>k__BackingField:
-    Guid:
-      Data1: -103810889
-      Data2: 1171149292
-      Data3: -1369718901
-      Data4: 57596483
-    Path: event:/SFX/Ambient Sound/Rain/Rain
-  <Vents>k__BackingField:
-    Guid:
-      Data1: -29327464
-      Data2: 1181027301
-      Data3: -523415400
-      Data4: 111186155
-    Path: event:/SFX/Ambient Sound/Air Vents/Air Vent
-  <Mouse>k__BackingField:
-    Guid:
-      Data1: 1604047165
-      Data2: 1282440192
-      Data3: -511012689
-      Data4: 1391516786
-    Path: event:/SFX/Tech Sounds/Mouse 1
-  <Keyboards>k__BackingField:
-  - Guid:
-      Data1: -516879228
-      Data2: 1231266367
-      Data3: 1136307364
-      Data4: -579736789
-    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 1
-  - Guid:
-      Data1: 61536917
-      Data2: 1158968452
-      Data3: -241192530
-      Data4: -1211663391
-    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 2
-  - Guid:
-      Data1: 1872822432
-      Data2: 1137818332
-      Data3: 1033468847
-      Data4: 75936795
-    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 3
-  <CardsHover>k__BackingField:
-    Guid:
-      Data1: 1821610975
-      Data2: 1285143301
-      Data3: -881051517
-      Data4: 455019610
-    Path: event:/SFX/Card Selection/Card Hover
-  <CardsSelect>k__BackingField:
-    Guid:
-      Data1: 945929587
-      Data2: 1134399371
-      Data3: -270394694
-      Data4: -762123829
-    Path: event:/SFX/Card Selection/Caed Selection
-  <StartingDialogue>k__BackingField:
-    Guid:
-      Data1: 1773095481
-      Data2: 1108026170
-      Data3: 536702108
-      Data4: 921644591
-    Path: event:/Music/Dialogue+
 --- !u!4 &383772534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7616579037371484840, guid: 0d9761d063b193747ad5ec0bb36a0b6d, type: 3}
@@ -13161,9 +13014,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6cb0a5c8f1cbc49be61175d636e38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reset: 5
   ComboCountText: {fileID: 37920152}
-  ComboTimerText: {fileID: 838071629}
+  ComboTimerSlider: {fileID: 0}
 --- !u!65 &1612045784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13353,51 +13205,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02000002, y: 0.02, z: 0.019999998}
   m_Center: {x: -0.0000038146973, y: -0.00000011920929, z: -0.000000014901161}
---- !u!1 &1643107136
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1643107137}
-  - component: {fileID: 1643107138}
-  m_Layer: 0
-  m_Name: Audio Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1643107137
+--- !u!4 &1643107137 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+  m_PrefabInstance: {fileID: 6267399627222507537}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643107136}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 383140745}
-  m_Father: {fileID: 1880879703}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1643107138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643107136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f11ca701b16ae04fbbc8807fb2ff0c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1645588895
 GameObject:
   m_ObjectHideFlags: 0
@@ -17523,6 +17335,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450651958634300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6267399627222507537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1880879703}
+    m_Modifications:
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354129639850509730, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211120946388429901, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de7e47adbf52b2f4fa6c343c5afb4094, type: 3}
 --- !u!33 &6310094865636416550
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Main.Scripts.Common;
+using Main.Scripts.Sound;
 using Sound.Scripts.Sound;
 using TMPro;
 using UnityEngine;
@@ -125,7 +126,7 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardLeft()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
         GoToNextLevel();
@@ -134,7 +135,7 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardMiddle()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
         GoToNextLevel();
@@ -143,7 +144,7 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardRight()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
         GoToNextLevel();
@@ -194,6 +195,8 @@ public class endingmenumanager : MonoBehaviour
 
     public void ShowCards()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+
         StartCoroutine(TimedCard());
     }
 

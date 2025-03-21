@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Main.Scripts.Player;
+using Main.Scripts.Sound;
 using Sid.Scripts.Player;
 using UnityEngine;
 using UnityEngine.AI;

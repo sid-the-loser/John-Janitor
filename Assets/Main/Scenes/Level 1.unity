@@ -13700,7 +13700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6cb0a5c8f1cbc49be61175d636e38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reset: 5
   ComboCountText: {fileID: 1659080165}
   ComboTimerSlider: {fileID: 1419281925}
 --- !u!114 &540196985

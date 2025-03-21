@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main.Scripts.Sound;
+using Sound.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +24,8 @@ public class IntroManager : MonoBehaviour
 
     public void ChangeToPhase1()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+
         StartCoroutine(TimedChangeToPhase1());
     }
 
@@ -35,6 +39,8 @@ public class IntroManager : MonoBehaviour
     
     public void ChangeToPhase0()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+
         StartCoroutine(TimedChangeToPhase0());
     }
     
@@ -48,6 +54,8 @@ public class IntroManager : MonoBehaviour
     
     public void ChangeToLevel1()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+
         StartCoroutine(TimedChangeToLevel1());
         
     }
@@ -61,6 +69,8 @@ public class IntroManager : MonoBehaviour
 
     public void QuitGame()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        
         Application.Quit();
     }
     

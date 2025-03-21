@@ -52,8 +52,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 15
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &3237458495971059911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4535148546787018816}
   - component: {fileID: 4973556304621434858}
   - component: {fileID: 3550498021268558115}
+  - component: {fileID: -3594173457772882419}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -352,6 +353,20 @@ MonoBehaviour:
   sprayBottleBulletPrefab: {fileID: 2832818003347860604, guid: ba37c5550ec3ef742b4b73c005fa0313, type: 3}
   stapleBulletPrefab: {fileID: 2832818003347860604, guid: d64c6b79b2c641542be314a64ee9bd36, type: 3}
   firePoint: {fileID: 3570506908081022289}
+--- !u!114 &-3594173457772882419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159294460312658011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 3159294460312658011}
 --- !u!1 &4952436810400307442
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace Main.Scripts.Player
 {
     public class Combo : MonoBehaviour
     {
-        private static float reset = 20f; //how long it takes for the combo to reset
+        private static float reset = 8f; //how long it takes for the combo to reset
         public TMP_Text ComboCountText;
         public Slider ComboTimerSlider;
 

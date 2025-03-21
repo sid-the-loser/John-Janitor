@@ -1,10 +1,9 @@
 using System.Collections;
 using FMOD.Studio;
-using FMODUnity;
+using Main.Scripts.Sound;
 using Sound.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Udey.Scripts
 {

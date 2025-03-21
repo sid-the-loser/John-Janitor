@@ -1,4 +1,5 @@
 using FMODUnity;
+using Main.Scripts.Sound;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

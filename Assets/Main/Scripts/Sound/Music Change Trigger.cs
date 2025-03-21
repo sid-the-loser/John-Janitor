@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Main.Scripts.Sound;
 using UnityEngine;
 
 namespace Sound.Scripts.Sound
@@ -13,7 +14,7 @@ namespace Sound.Scripts.Sound
             {
                 _enemiesInTrigger.Add(other.gameObject);
                 enemyCounter++;
-//                AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
+                AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
             }
         }
         private void OnTriggerExit(Collider other)
@@ -22,7 +23,7 @@ namespace Sound.Scripts.Sound
             {
                 _enemiesInTrigger.Remove(other.gameObject);
                 enemyCounter--;
-//                AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
+                AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
             }
         }
         private void Update()
@@ -33,7 +34,7 @@ namespace Sound.Scripts.Sound
                 {
                     _enemiesInTrigger.RemoveAt(i);
                     enemyCounter--;
-//                    AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
+                    AudioManager.Instance.SetMusicParameter("Number of Enemies", enemyCounter);
                 }
             }
         }
