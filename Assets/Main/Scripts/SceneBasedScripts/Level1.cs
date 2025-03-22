@@ -12,22 +12,22 @@ public class Level1 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
     [SerializeField] private TextMeshProUGUI enemyCount;
-    
+
     private GameObject _playerObject;
-    
+
     private ElevatorBehaviour _elevator;
 
     private StatsBehaviour _playerStats;
-    
+
     private PopUpManager _popUpManager;
-    
+
     private bool _deathTriggered;
 
     public static bool _levelPassed;
 
     private float _pastHealth;
     private bool _firstDamageTick = true;
-    
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -40,7 +40,7 @@ public class Level1 : MonoBehaviour
         _playerStats = _playerObject.GetComponent<StatsBehaviour>();
         _popUpManager = GameObject.FindObjectOfType<PopUpManager>();
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
-        
+
         dyingImage.color = new Color(1f, 1f, 1f, 0f);
         _popUpManager.SetObjective("Clean up the garbage!");
 
@@ -49,6 +49,11 @@ public class Level1 : MonoBehaviour
 
     private void Update()
     {
+        if (_playerObject == null)
+        {
+            _playerObject = FindObjectOfType<PlayerMovement>().gameObject;
+            _playerStats = _playerObject.GetComponent<StatsBehaviour>();
+        }
         if (_playerObject.transform.position.y < -50)
         {
             Cursor.visible = true;
@@ -78,27 +83,29 @@ public class Level1 : MonoBehaviour
         {
             _popUpManager.FlashObjective();
         }
+
+        if (!_levelPassed)
+        {
+            StartCoroutine( Level1PassedCheck());
+        }
     }
 
     private IEnumerator Level1PassedCheck()
     {
-        while (!_levelPassed)
+        var _count = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        enemyCount.text = $"Trash Count: {_count}";
+
+        if (_count <= 0)
         {
-            var _count = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            
-            enemyCount.text = $"Trash Count: {_count}";
-            
-            if (_count <= 0)
-            {
-                _popUpManager.SetObjective("Head back to the elevator.");
-                _elevator.SetLastContact(true);
-                _elevator.TriggerElevator();
-                StartCoroutine(LevelTransition());
-                _levelPassed = true;
-            }
-            
-            yield return new WaitForSeconds(5f);
+            _popUpManager.SetObjective("Head back to the elevator.");
+            _elevator.SetLastContact(true);
+            _elevator.TriggerElevator();
+            StartCoroutine(LevelTransition());
+            _levelPassed = true;
         }
+
+        yield return new WaitForSeconds(5f);
     }
 
     private IEnumerator LevelTransition()
@@ -108,6 +115,7 @@ public class Level1 : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         GlobalVariables.NextLevelIndex = 0;
+        endingmenumanager.ActivateScene("Level Transition Scene");
         SceneManager.LoadScene(2);
     }
 

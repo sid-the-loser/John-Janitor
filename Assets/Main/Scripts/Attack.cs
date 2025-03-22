@@ -2,6 +2,7 @@ using System.Collections;
 using FMOD;
 using Main.Scripts;
 using Main.Scripts.Player;
+using Main.Scripts.Sound;
 using Sound.Scripts.Sound;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,25 +23,22 @@ namespace Udey.Scripts
         private LayerMask enemyLayer;
         private RaycastHit otherHit;
 
-        private void Start()
-        {
-            camera = Camera.main;
-        }
-
         void Update()
         {
             if (Input.GetMouseButton(0) && !meleeOnCooldown)
             {
+                camera = Camera.main;
+                
                 if (camera)
                 {
                     camPos = camera.transform.position;
-
+                    
+                    Debug.DrawRay(camPos, camera.transform.TransformDirection(Vector3.forward) * 10f, Color.red, 5);
                     if (Physics.Raycast(camPos, camera.transform.forward, out var hit, 10f))
                     {
                         otherHit = hit;
                         if (hit.transform.CompareTag("Enemy"))
                         {
-                            StartCoroutine(FlashColor(hit.transform.gameObject));
                             StartCoroutine(OnDestory());
                             StartCoroutine(MeleeCooldown());
                         }
@@ -61,20 +59,11 @@ namespace Udey.Scripts
             // image.transform.Rotate(0, 0, -25); // Rotate image back to normal
         }
 
-        private IEnumerator FlashColor(GameObject hit)
-        {
-            hit.GetComponent<Renderer>().material.SetColor("_RimColor", Color.white);
-            yield return new WaitForSeconds(0.1f);
-            hit.GetComponent<Renderer>().material.SetColor("_RimColor", new Color32(128, 0, 0, 0));
-            yield return new WaitForSeconds(0.1f);
-        }
-
         private IEnumerator OnDestory()
         {
             yield return new WaitForSeconds(0.2f);
             Destroy(otherHit.transform.gameObject);
             Combo.ComboIncrease();
-            MusicChangeTrigger.enemyCounter--;
         }
 
         private IEnumerator MeleeCooldown()

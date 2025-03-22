@@ -29,8 +29,6 @@ namespace Sound.Scripts.Sound
         [field: SerializeField] public EventReference CardsHover { get; private set; }
         [field: SerializeField] public EventReference CardsSelect { get; private set; } 
         
-        [field: Header("Dialogue")]
-        [field: SerializeField] public EventReference StartingDialogue { get; private set; }
         
         public static FmodEvents Instance { get; private set; }
         

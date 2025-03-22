@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Main.Scripts.Sound;
 using Sid.Scripts.Enemy;
 using Sound.Scripts.Sound;
 using TMPro;
@@ -52,12 +53,6 @@ namespace Main.Scripts.Common
             }
         }
         
-        private IEnumerator startDialogue()
-        {
-            yield return new WaitForSeconds(1f);
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.StartingDialogue, transform.position);
-        }
-
         #region RNG
 
         private List<int> GetRandomOption()
@@ -122,21 +117,18 @@ namespace Main.Scripts.Common
             AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[0].text);
             DeactivateCardDropDown();
-            StartCoroutine(startDialogue());
         }
         public void SelectedCardMiddle()
         {
             AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[1].text);
             DeactivateCardDropDown();
-            StartCoroutine(startDialogue());
         }
         public void SelectedCardRight()
         {
             AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             ChangeStats(descriptions[2].text);
             DeactivateCardDropDown();
-            StartCoroutine(startDialogue());
         }
         private void ChangeStats(string pickedOption)
         {

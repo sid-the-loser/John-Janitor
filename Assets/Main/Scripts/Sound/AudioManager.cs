@@ -1,8 +1,10 @@
+using System;
 using FMOD.Studio;
 using FMODUnity;
+using Sound.Scripts.Sound;
 using UnityEngine;
 
-namespace Sound.Scripts.Sound
+namespace Main.Scripts.Sound
 {
     public class AudioManager : MonoBehaviour
     {
@@ -35,6 +37,7 @@ namespace Sound.Scripts.Sound
         }
         public EventInstance CreateEventInstance(EventReference eventReference)
         {
+            Getplayer();
             EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
             eventInstance.set3DAttributes(_player.transform.position.To3DAttributes());
             return eventInstance;
@@ -49,6 +52,14 @@ namespace Sound.Scripts.Sound
         public void SetMusicParameter(string parameterName, float parameterValue)
         {
             _musicEventInstance.setParameterByName(parameterName, parameterValue);
+        }
+
+        private void Getplayer()
+        {
+            if (!_player)
+            {
+                _player = GameObject.FindGameObjectWithTag("Player");
+            }
         }
     }
 }

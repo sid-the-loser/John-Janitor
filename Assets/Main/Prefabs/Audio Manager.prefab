@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8504740416249837917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7091413130172886751}
+  - component: {fileID: 4826621616666932122}
+  m_Layer: 0
+  m_Name: FmodEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7091413130172886751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504740416249837917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4354129639850509730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4826621616666932122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504740416249837917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414a9b99b72fa3499a74d2adc80958b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Music>k__BackingField:
+    Guid:
+      Data1: 1974431080
+      Data2: 1149713798
+      Data3: -33501509
+      Data4: -1120830776
+    Path: event:/Music/Music
+  <Walk>k__BackingField:
+    Guid:
+      Data1: 397851058
+      Data2: 1080139480
+      Data3: 1936279994
+      Data4: -298899085
+    Path: event:/Character Noises/Movement/Walking
+  <Throw>k__BackingField:
+    Guid:
+      Data1: -535823028
+      Data2: 1339681358
+      Data3: -1015064181
+      Data4: -704266296
+    Path: event:/Character Noises/Weapon/Throw
+  <Swing>k__BackingField:
+    Guid:
+      Data1: -343728985
+      Data2: 1095942870
+      Data3: -148957549
+      Data4: 1685853086
+    Path: event:/Character Noises/Weapon/Swing
+  <DeathSound>k__BackingField:
+    Guid:
+      Data1: -2027091958
+      Data2: 1193458681
+      Data3: -779741777
+      Data4: -1159706397
+    Path: event:/Character Noises/Injuries/Death Sound
+  <HurtSounds>k__BackingField:
+    Guid:
+      Data1: 13344939
+      Data2: 1202832754
+      Data3: 796788152
+      Data4: 1022645905
+    Path: event:/Character Noises/Injuries/Get Hit
+  <Rain>k__BackingField:
+    Guid:
+      Data1: -103810889
+      Data2: 1171149292
+      Data3: -1369718901
+      Data4: 57596483
+    Path: event:/SFX/Ambient Sound/Rain/Rain
+  <Vents>k__BackingField:
+    Guid:
+      Data1: -29327464
+      Data2: 1181027301
+      Data3: -523415400
+      Data4: 111186155
+    Path: event:/SFX/Ambient Sound/Air Vents/Air Vent
+  <Mouse>k__BackingField:
+    Guid:
+      Data1: 1604047165
+      Data2: 1282440192
+      Data3: -511012689
+      Data4: 1391516786
+    Path: event:/SFX/Tech Sounds/Mouse 1
+  <Keyboards>k__BackingField:
+  - Guid:
+      Data1: -516879228
+      Data2: 1231266367
+      Data3: 1136307364
+      Data4: -579736789
+    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 1
+  - Guid:
+      Data1: 61536917
+      Data2: 1158968452
+      Data3: -241192530
+      Data4: -1211663391
+    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 2
+  - Guid:
+      Data1: 1872822432
+      Data2: 1137818332
+      Data3: 1033468847
+      Data4: 75936795
+    Path: event:/SFX/Tech Sounds/Keyboard/Keyboards 3
+  <CardsHover>k__BackingField:
+    Guid:
+      Data1: 1821610975
+      Data2: 1285143301
+      Data3: -881051517
+      Data4: 455019610
+    Path: event:/SFX/Card Selection/Card Hover
+  <CardsSelect>k__BackingField:
+    Guid:
+      Data1: 945929587
+      Data2: 1134399371
+      Data3: -270394694
+      Data4: -762123829
+    Path: event:/SFX/Card Selection/Caed Selection
+  <StartingDialogue>k__BackingField:
+    Guid:
+      Data1: 1773095481
+      Data2: 1108026170
+      Data3: 536702108
+      Data4: 921644591
+    Path: event:/Music/Dialogue+
+--- !u!1 &9211120946388429901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4354129639850509730}
+  - component: {fileID: 4976449895877721144}
+  - component: {fileID: 372633756181577343}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4354129639850509730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211120946388429901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7091413130172886751}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4976449895877721144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211120946388429901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f11ca701b16ae04fbbc8807fb2ff0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &372633756181577343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211120946388429901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec3876bd97a37449840cccd3006cdf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

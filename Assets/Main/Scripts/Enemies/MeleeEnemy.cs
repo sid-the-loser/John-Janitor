@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Main.Scripts.Player;
+using Main.Scripts.Sound;
 using Sid.Scripts.Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,6 +31,7 @@ public class MeleeEnemy : EnemyBase
         if (stats.GetIsDead())
         {
             Destroy(gameObject);
+            Combo.ComboIncrease();
         }
         
         if (CurrentState == States.Moving)
@@ -57,6 +60,7 @@ public class MeleeEnemy : EnemyBase
             if (Vector3.Distance(PlayerObject.transform.position, transform.position) <= explosionRadius)
             {
                 PlayerObject.GetComponent<StatsBehaviour>().DamageHealth(stats.GetAttackDamage());
+                Combo.ComboReset();
             }
             Destroy(this.gameObject);
         }

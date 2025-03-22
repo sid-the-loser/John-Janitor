@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Main.Scripts.Common;
+using Main.Scripts.Sound;
 using Sound.Scripts.Sound;
 using TMPro;
 using UnityEngine;
@@ -125,28 +126,28 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardLeft()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
     public void SelectedCardMiddle()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
     public void SelectedCardRight()
     {
-        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
-        RandomLevelShit();
+        GoToNextLevel();
         //StartCoroutine(startDialogue());
     }
 
@@ -194,6 +195,8 @@ public class endingmenumanager : MonoBehaviour
 
     public void ShowCards()
     {
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+
         StartCoroutine(TimedCard());
     }
 
@@ -231,12 +234,38 @@ public class endingmenumanager : MonoBehaviour
         return Random.Range(0, levelPrefabs.Length);
     }
 
-    private void RandomLevelShit()
+    private void GoToNextLevel()
     {
         levelIndex = GlobalVariables.NextLevelIndex;
         Level1._levelPassed = false;
+        DeactivateScene("Level Transition Scene");
         LoadNextLevel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+    public static void DeactivateScene(string sceneName)
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        if (scene.isLoaded)
+        {
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
+    }
+
+    public static void ActivateScene(string sceneName)
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        if (scene.isLoaded)
+        {
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
     }
 }

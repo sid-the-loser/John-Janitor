@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Main.Scripts.Player;
 using UnityEngine;
 
 public class StatsBehaviour : MonoBehaviour
@@ -36,7 +37,7 @@ public class StatsBehaviour : MonoBehaviour
     public void DamageHealth(float value)
     {
         _health -= value;
-
+        
         if (_health <= 0)
         {
             _isDead = true;

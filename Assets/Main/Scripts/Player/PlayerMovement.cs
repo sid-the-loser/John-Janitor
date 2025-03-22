@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using FMOD.Studio;
 using Main.Scripts.Common;
+using Main.Scripts.Sound;
 using Sound.Scripts;
 using Sound.Scripts.Sound; //sound
 
@@ -43,7 +44,7 @@ namespace Sid.Scripts.Player
         private CapsuleCollider _playerCollisionShape;
         private Rigidbody _playerRigidbody;
 
-        private EventInstance _playerWalk; // sound
+        private EventInstance playerWalk; // sound
         
         public float mouseSensitivity = 0.4f;
 
@@ -80,7 +81,7 @@ namespace Sid.Scripts.Player
                 _crouchKey = KeyCode.C;
             
             // INFO: IDK what this is! It's throwing an error
-            // _playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
+            playerWalk = AudioManager.Instance.CreateEventInstance(FmodEvents.Instance.Walk);
         }
 
         
@@ -126,6 +127,8 @@ namespace Sid.Scripts.Player
 
                 if (_direction != Vector3.zero)
                 {
+                    UpdateSound();
+
                     _currentVel.x = _direction.x * _walkingSpeed;
                     _currentVel.z = _direction.z * _walkingSpeed;
                 }
@@ -174,51 +177,45 @@ namespace Sid.Scripts.Player
             if (Input.GetKey(KeyCode.W))
             {
                 _inputDirection.z = 1;
-                UpdateSound();
             } 
             else if (Input.GetKey(KeyCode.S))
             {
                 _inputDirection.z = -1;
-                UpdateSound();
             }
             else
             {
                 _inputDirection.z = 0;
-                UpdateSound();
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 _inputDirection.x = 1;
-                UpdateSound();
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 _inputDirection.x = -1;
-                UpdateSound();
             }
             else
             {
                 _inputDirection.x = 0;
-                UpdateSound();
             }
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         private void UpdateSound() //sound
         {
-            if((Mathf.Abs(_playerRigidbody.velocity.x) >= 0.5f || Mathf.Abs(_playerRigidbody.velocity.z) >= 0.5f) && IsGrounded())
+            if((Mathf.Abs(_playerRigidbody.velocity.x) >= 0.15f || Mathf.Abs(_playerRigidbody.velocity.z) >= 0.15f))
             {
                 PLAYBACK_STATE playbackState;
-                _playerWalk.getPlaybackState(out playbackState);
+                playerWalk.getPlaybackState(out playbackState);
                 if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
                 {
-                    _playerWalk.start();
+                    playerWalk.start();
                 }
             }
             else
             {
-                _playerWalk.stop(STOP_MODE.IMMEDIATE);
+                playerWalk.stop(STOP_MODE.IMMEDIATE);
             }
                 
         }

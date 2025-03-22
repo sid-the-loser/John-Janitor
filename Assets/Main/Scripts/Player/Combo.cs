@@ -1,19 +1,19 @@
 using Main.Scripts.Common;
 using UnityEngine;
 using TMPro;
-using Unity.Mathematics;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Main.Scripts.Player
 {
     public class Combo : MonoBehaviour
     {
-        [SerializeField] private float reset = 5f; //how long it takes for the combo to reset
+        private static float reset = 8f; //how long it takes for the combo to reset
         public TMP_Text ComboCountText;
-        public TMP_Text ComboTimerText;
+        public Slider ComboTimerSlider;
 
         private static int combo; //current combo
-        private static float timer; //time since last combo update
+        public static float Timer; //time since last combo update
 
         #region Base Player Stats
 
@@ -33,10 +33,15 @@ namespace Main.Scripts.Player
         // Start is called before the first frame update
         void Start()
         {
-            timer = reset;
+            Timer = reset;
             combo = 0;
             GetBaseStats(); //gets base player stats
             
+            if (ComboTimerSlider != null)
+            {
+                ComboTimerSlider.maxValue = reset; 
+                ComboTimerSlider.value = reset; 
+            }
         }
 
         private void Update()
@@ -45,27 +50,33 @@ namespace Main.Scripts.Player
 
             if (_count >= 1)
             {
-                timer = timer - Time.deltaTime; //updates time since last combo update
+                Timer = Timer - Time.deltaTime; //updates time since last combo update
             }
             
-            if (timer <= 0) //when player runs out of combo timer
+            if (Timer <= 0) //when player runs out of combo timer
             {
-                combo = 0; //resets combo
-                timer = 5f; //resets timer
-                Debug.Log("Player Combo and Stats Boost Reset");
+                ComboReset();
             }
             UpdateText();
+            UpdateSlider();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         public static void ComboIncrease()
         {
             combo++; //increments combo by 1 when player hits a Player
-            timer = 5f; //resets timer
+            Timer = reset; //resets timer
             if (combo % 5 == 0) //when combo is a multiple of 5
             {
                 IncreasePlayerStats(); //increases the player stats
             }
+        }
+
+        public static void ComboReset()
+        {
+            combo = 0;
+            Timer = reset;
+            Debug.Log("Player Combo and Stats Boost Reset");
         }
 
         private void GetBaseStats()
@@ -152,8 +163,15 @@ namespace Main.Scripts.Player
 
         private void UpdateText()
         {
-            ComboCountText.text = "Combo Count: " +combo.ToString();
-            ComboTimerText.text = "Combo Reset Timer: " + (math.round(timer)).ToString();
+            ComboCountText.text = combo.ToString();
+        }
+        
+        private void UpdateSlider()
+        {
+            if (ComboTimerSlider != null)
+            {
+                ComboTimerSlider.value = Timer;
+            }
         }
     }
 }
