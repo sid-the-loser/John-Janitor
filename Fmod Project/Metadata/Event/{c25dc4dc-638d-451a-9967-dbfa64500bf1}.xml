@@ -5,7 +5,7 @@
 			<value>Elevator Noise Loop</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2c68cca1-21fa-4348-95af-04dc12deca5f}</destination>
@@ -79,6 +79,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{fc564292-528b-46b6-8940-88ff59b8679f}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{ad4007bc-ba6d-43da-b197-87406d7a30c1}</destination>
 		</relationship>
@@ -144,9 +147,11 @@
 	<object class="MixerBusEffectChain" id="{ad4007bc-ba6d-43da-b197-87406d7a30c1}">
 		<relationship name="effects">
 			<destination>{6127ef4c-3f10-427b-a67d-e6e4904c46b2}</destination>
+			<destination>{5547fe33-3e30-404b-a313-064e53c3021d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5bf27f70-f39b-4897-b5ea-08ff5e3daf57}" />
 	<object class="MixerBusFader" id="{a5fe6b43-608a-4508-8371-676a0dededec}" />
 	<object class="MixerBusFader" id="{6127ef4c-3f10-427b-a67d-e6e4904c46b2}" />
+	<object class="SpatialiserEffect" id="{5547fe33-3e30-404b-a313-064e53c3021d}" />
 </objects>
