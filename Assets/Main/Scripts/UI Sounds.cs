@@ -9,7 +9,7 @@ namespace Main.Scripts
     {
         public void OnPointerEnter(PointerEventData eventData)
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             eventData.selectedObject = gameObject;
         }
         

@@ -25,7 +25,7 @@ public class IntroManager : MonoBehaviour
 
     public void ChangeToPhase1()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
 
         StartCoroutine(TimedChangeToPhase1());
     }
@@ -40,7 +40,7 @@ public class IntroManager : MonoBehaviour
     
     public void ChangeToPhase0()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
 
         StartCoroutine(TimedChangeToPhase0());
     }
@@ -55,7 +55,7 @@ public class IntroManager : MonoBehaviour
     
     public void ChangeToLevel1()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
         AudioManager.Instance.StopMusic(); 
         AudioManager.Instance.InitializeMusic(FmodEvents.Instance.Music);
         StartCoroutine(TimedChangeToLevel1());
@@ -74,7 +74,7 @@ public class IntroManager : MonoBehaviour
 
     public void QuitGame()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
         
         Application.Quit();
     }
