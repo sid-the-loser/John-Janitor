@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private float visionTriggerDistance = 20f;
+    [SerializeField] protected NavMeshAgent Agent;
     
     protected enum States
     {
@@ -16,14 +17,12 @@ public class EnemyBase : MonoBehaviour
         Attack,
         Die
     }
-
-    protected NavMeshAgent Agent;
     
     protected Vector3 TargetPosition;
 
-    private Vector3 pastTergetPOsition;
+    private Vector3 pastTargetPosition;
     
-    protected GameObject PlayerObject;
+    protected static GameObject PlayerObject;
     
     protected States CurrentState = States.Wander;
     
@@ -32,8 +31,12 @@ public class EnemyBase : MonoBehaviour
     protected void OnStart()
     {
         TargetPosition = transform.position;
-        Agent = GetComponent<NavMeshAgent>();
-        PlayerObject = FindObjectOfType<PlayerMovement>().gameObject;
+        // Agent = GetComponent<NavMeshAgent>();
+        
+        if (PlayerObject is null)
+        {
+            PlayerObject = FindObjectOfType<PlayerMovement>().gameObject;
+        }
     }
 
     protected void LateUpdate()
@@ -47,10 +50,10 @@ public class EnemyBase : MonoBehaviour
             }
         }
 
-        if (pastTergetPOsition != TargetPosition)
+        if (pastTargetPosition != TargetPosition)
         {
             Agent.SetDestination(TargetPosition);
-            pastTergetPOsition = TargetPosition;
+            pastTargetPosition = TargetPosition;
         }
     }
 }
