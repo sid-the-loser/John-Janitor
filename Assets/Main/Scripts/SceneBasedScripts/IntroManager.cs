@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Main.Scripts.Sound;
@@ -55,16 +56,20 @@ public class IntroManager : MonoBehaviour
     public void ChangeToLevel1()
     {
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
-
+        AudioManager.Instance.StopMusic(); 
+        AudioManager.Instance.InitializeMusic(FmodEvents.Instance.Music);
         StartCoroutine(TimedChangeToLevel1());
         
     }
     
     IEnumerator TimedChangeToLevel1()
     {
-        yield return new WaitForSeconds(2.2f);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.ElevatorOpens, transform.position);
+        
+        yield return new WaitForSeconds(4.2f);
         
         SceneManager.LoadScene("Level 1");
+        
     }
 
     public void QuitGame()
@@ -73,5 +78,4 @@ public class IntroManager : MonoBehaviour
         
         Application.Quit();
     }
-    
 }

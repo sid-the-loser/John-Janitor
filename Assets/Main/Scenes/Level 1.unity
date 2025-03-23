@@ -52339,6 +52339,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 160506838566763252, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093634907019618796, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
+      propertyPath: m_Radius
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4862197105673633002, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
       propertyPath: m_IsActive
       value: 1

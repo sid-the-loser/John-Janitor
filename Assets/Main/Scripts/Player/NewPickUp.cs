@@ -120,6 +120,7 @@ namespace Main.Scripts.Player
         {
             if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
             {
+                pickUpObj.GetComponent<Renderer>().material.SetFloat("_Active", 0);
                 heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
                 heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
@@ -150,6 +151,7 @@ namespace Main.Scripts.Player
 
         void DropObject()
         {
+            heldObj.GetComponent<Renderer>().material.SetFloat("_Active", 1);
             //re-enable collision with player
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
             foreach (GameObject child in children)
@@ -160,7 +162,6 @@ namespace Main.Scripts.Player
             heldObj.layer = 0; //object assigned back to default layer
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null; //unparent object
-            
             ResetingStats(name);
 
             name = null;

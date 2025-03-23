@@ -6,6 +6,7 @@ Shader "Custom/Weapon Sin"
         _RimColor ("Rim Color", Color) = (1,1,1,1)
         _RimPower ("Rim Power", Range(1, 10)) = 3
         _PulseSpeed ("Pulse Speed", Float) = 2.0
+        _Active ("Active", Range(0, 1)) = 1
     }
 
     SubShader
@@ -20,6 +21,7 @@ Shader "Custom/Weapon Sin"
         fixed4 _RimColor;
         float _RimPower;
         float _PulseSpeed;
+        float _Active;
 
         struct Input
         {
@@ -29,9 +31,11 @@ Shader "Custom/Weapon Sin"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
+            
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex);
             o.Albedo = tex.rgb;
-
+            if (_Active > 0.5)
+            {
             // Calculate rim based on view direction and normal
             float rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
             
@@ -40,6 +44,7 @@ Shader "Custom/Weapon Sin"
 
             // Apply rim lighting
             o.Emission = _RimColor.rgb * pow(rim, _RimPower) * pulse;
+            }
         }
         ENDCG
     }
