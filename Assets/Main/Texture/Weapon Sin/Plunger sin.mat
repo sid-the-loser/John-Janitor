@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Broom sin
+  m_Name: Plunger sin
   m_Shader: {fileID: 4800000, guid: aefd75b165ff3f143801f877eb963443, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 375831ce7186059438cb4c25e33236e0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4b71afc862ace6d4ab29dee2f6726a31, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

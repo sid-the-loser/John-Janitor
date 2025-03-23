@@ -52440,6 +52440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8049042590195780302, guid: e8a62008c88fb29459a5e44e5ecda547, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49380c6a68de49248a6fd7bf3ef996fd, type: 2}
     - target: {fileID: 8409080215626820379, guid: e8a62008c88fb29459a5e44e5ecda547, type: 3}
       propertyPath: m_Name
       value: Plunger (1)
