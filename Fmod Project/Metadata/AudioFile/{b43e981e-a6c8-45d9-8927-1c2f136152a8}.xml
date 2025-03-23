@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b43e981e-a6c8-45d9-8927-1c2f136152a8}">
+		<property name="assetPath">
+			<value>Music/JohnElevator_115bpm.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>121.0434693877551</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7258c51c-acdb-40c4-815a-a6c10634965c}</destination>
+		</relationship>
+	</object>
+</objects>

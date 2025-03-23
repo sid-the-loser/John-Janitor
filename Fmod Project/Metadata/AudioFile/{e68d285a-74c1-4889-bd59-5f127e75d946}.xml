@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e68d285a-74c1-4889-bd59-5f127e75d946}">
+		<property name="assetPath">
+			<value>SFX/LevelStartElevator.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.024</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7258c51c-acdb-40c4-815a-a6c10634965c}</destination>
+		</relationship>
+	</object>
+</objects>
