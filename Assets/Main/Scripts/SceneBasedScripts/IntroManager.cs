@@ -66,7 +66,7 @@ public class IntroManager : MonoBehaviour
     {
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.ElevatorOpens, transform.position);
         
-        yield return new WaitForSeconds(4.2f);
+        yield return new WaitForSeconds(2.2f);
         
         SceneManager.LoadScene("Level 1");
         

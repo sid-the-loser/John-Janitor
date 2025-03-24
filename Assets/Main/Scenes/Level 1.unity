@@ -8086,6 +8086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 5.662
       objectReference: {fileID: 0}
+    - target: {fileID: 2722622478777982643, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3065068925677542307, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -52150,6 +52154,10 @@ PrefabInstance:
     - target: {fileID: 6595790102684569045, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215995930322608395, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
+      propertyPath: maxHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 8778696720776759528, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
       propertyPath: volumeTrigger
