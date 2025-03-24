@@ -79,7 +79,7 @@ Material:
     - _Parallax: 0.02
     - _RimPower: 0.5
     - _SinAmplitude: 0.2
-    - _SinFrequency: 3
+    - _SinFrequency: 3.33
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

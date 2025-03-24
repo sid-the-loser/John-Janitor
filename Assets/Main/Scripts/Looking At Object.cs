@@ -12,7 +12,7 @@ namespace Sound.Scripts
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Interactable Object"))
+            if (other.CompareTag("canLiftHeavy") || other.CompareTag("canPickUpThrowable") || other.CompareTag("canPickUpWeapon"))
             {
                 children.Clear();
                 foreach (Transform child in other.transform)

@@ -51,6 +51,13 @@ MonoBehaviour:
       Data3: -33501509
       Data4: -1120830776
     Path: event:/Music/Music
+  <ElevatorMusic>k__BackingField:
+    Guid:
+      Data1: -1014992991
+      Data2: 1263886944
+      Data3: 1256371861
+      Data4: -634394773
+    Path: event:/SFX/Elevator Sounds/Elevator Music Loop
   <Walk>k__BackingField:
     Guid:
       Data1: 397851058
@@ -100,6 +107,20 @@ MonoBehaviour:
       Data3: -523415400
       Data4: 111186155
     Path: event:/SFX/Ambient Sound/Air Vents/Air Vent
+  <ElevatorSounds>k__BackingField:
+    Guid:
+      Data1: -1034042148
+      Data2: 1159357325
+      Data3: -86284391
+      Data4: -250916764
+    Path: event:/SFX/Elevator Sounds/Elevator Noise Loop
+  <ElevatorOpens>k__BackingField:
+    Guid:
+      Data1: -1310692884
+      Data2: 1279251139
+      Data3: -116802658
+      Data4: -1535931836
+    Path: event:/SFX/Elevator Sounds/Level Start Elevator
   <Mouse>k__BackingField:
     Guid:
       Data1: 1604047165
@@ -140,13 +161,6 @@ MonoBehaviour:
       Data3: -270394694
       Data4: -762123829
     Path: event:/SFX/Card Selection/Caed Selection
-  <StartingDialogue>k__BackingField:
-    Guid:
-      Data1: 1773095481
-      Data2: 1108026170
-      Data3: 536702108
-      Data4: 921644591
-    Path: event:/Music/Dialogue+
 --- !u!1 &9211120946388429901
 GameObject:
   m_ObjectHideFlags: 0

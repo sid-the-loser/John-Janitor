@@ -7,6 +7,7 @@ namespace Sound.Scripts.Sound
     {
         [field: Header("Music")]
         [field: SerializeField] public EventReference Music { get; private set; }
+        [field: SerializeField] public EventReference ElevatorMusic { get; private set; }
         
         [field: Header("Character Noises")]
         [field: SerializeField] public EventReference Walk { get; private set; }
@@ -20,6 +21,8 @@ namespace Sound.Scripts.Sound
         [field: Header("Ambient Sound")]
         [field: SerializeField] public EventReference Rain { get; private set; }
         [field: SerializeField] public EventReference Vents { get; private set; }
+        [field: SerializeField] public EventReference ElevatorSounds { get; private set; }
+        [field: SerializeField] public EventReference ElevatorOpens { get; private set; }
         
         [field: Header("Tech Sounds")]
         [field: SerializeField] public EventReference Mouse { get; private set; }

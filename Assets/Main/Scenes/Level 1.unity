@@ -8086,6 +8086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 5.662
       objectReference: {fileID: 0}
+    - target: {fileID: 2722622478777982643, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3065068925677542307, guid: ab7e61494e4bb2343a4d43b9df244fcb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -52151,6 +52155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8215995930322608395, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
+      propertyPath: maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 8778696720776759528, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -52212,6 +52220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6564634577004940829, guid: 62bfcf435b6e4e345ad83fe8ae5f675a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03db3d19129d86e449bdf97b73025ad8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52335,6 +52347,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 160506838566763252, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093634907019618796, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
+      propertyPath: m_Radius
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4862197105673633002, guid: ea08b4d9b56e8fe4f9af67feaf8358fa, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -52436,6 +52456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8049042590195780302, guid: e8a62008c88fb29459a5e44e5ecda547, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49380c6a68de49248a6fd7bf3ef996fd, type: 2}
     - target: {fileID: 8409080215626820379, guid: e8a62008c88fb29459a5e44e5ecda547, type: 3}
       propertyPath: m_Name
       value: Plunger (1)

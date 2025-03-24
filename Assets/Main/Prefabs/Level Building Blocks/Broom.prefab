@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4dd3f23250d9c6848923f0ec9b72756a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d9cfdda6b785a224f82942968d7f8ba3, type: 2}
+      objectReference: {fileID: 2100000, guid: 03db3d19129d86e449bdf97b73025ad8, type: 2}
     - target: {fileID: 919132149155446097, guid: 4dd3f23250d9c6848923f0ec9b72756a, type: 3}
       propertyPath: m_Name
       value: Broom

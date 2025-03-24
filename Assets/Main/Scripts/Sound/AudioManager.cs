@@ -3,6 +3,7 @@ using FMOD.Studio;
 using FMODUnity;
 using Sound.Scripts.Sound;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Main.Scripts.Sound
 {
@@ -16,7 +17,7 @@ namespace Main.Scripts.Sound
         private void Awake()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
-            InitializeMusic(FmodEvents.Instance.Music);
+            InitializeMusic(FmodEvents.Instance.ElevatorMusic);
             Instance = this;
             if (Instance == null)
             {
@@ -43,10 +44,16 @@ namespace Main.Scripts.Sound
             return eventInstance;
         }
 
-        private void InitializeMusic(EventReference musicReference)
+        public void InitializeMusic(EventReference musicReference)
         {
             _musicEventInstance = CreateEventInstance(musicReference);
             _musicEventInstance.start();
+        }
+        
+        public void StopMusic()
+        {
+            var musicBus = RuntimeManager.GetBus("bus:/Music");
+            musicBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         public void SetMusicParameter(string parameterName, float parameterValue)
