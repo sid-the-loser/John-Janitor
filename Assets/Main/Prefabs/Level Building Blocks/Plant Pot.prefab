@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6fd14d3da255616489c7bcc6f79536dd, type: 2}
     - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Name
-      value: PlantPot (2)
+      value: Plant Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -95,8 +99,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 6.4263873, z: 1}
-  m_Center: {x: 0, y: 2.7131937, z: 0}
+  m_Size: {x: 2.588026, y: 7.507064, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 2.3920822, z: -0.020996094}
 --- !u!54 &4345679339531058386
 Rigidbody:
   m_ObjectHideFlags: 0

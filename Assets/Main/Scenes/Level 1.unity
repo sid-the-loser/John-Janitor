@@ -4555,11 +4555,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potted Plant 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146503073}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146503072}
   m_SourcePrefab: {fileID: 100100000, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+--- !u!1 &146503071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+  m_PrefabInstance: {fileID: 146503070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &146503072
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146503071}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &146503073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146503071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021050554, y: 0.021050552, z: 0.03610525}
+  m_Center: {x: 0, y: 5.7217354e-17, z: 0.008052626}
 --- !u!1 &152298309
 GameObject:
   m_ObjectHideFlags: 0
@@ -8184,6 +8247,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Name
       value: PlantPot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13238,6 +13305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantPot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
+      objectReference: {fileID: 0}
     - target: {fileID: 3316992658331686828, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_LocalScale.x
       value: 49.862267
@@ -16957,6 +17028,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Name
       value: PlantPot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -23912,6 +23987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantPot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
+      objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -23923,6 +24002,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1521048435}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1521048436}
   m_SourcePrefab: {fileID: 100100000, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
 --- !u!1 &913392885
 GameObject:
@@ -28089,63 +28171,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1001 &1085208713
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 54.48403
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.87984
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -33.61589
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 473c02b380456564ea947e05030f91b8, type: 3}
-      propertyPath: m_Name
-      value: Potted Plant 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 473c02b380456564ea947e05030f91b8, type: 3}
 --- !u!1001 &1089436802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37732,8 +37757,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 6.4263873, z: 1}
-  m_Center: {x: 0, y: 2.7131937, z: 0}
+  m_Size: {x: 2.588026, y: 7.507064, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 2.3920822, z: -0.020996094}
 --- !u!1 &1481289232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
@@ -38484,8 +38509,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 6.2038226, z: 1}
-  m_Center: {x: 0, y: 2.6019113, z: 0}
+  m_Size: {x: 2.588026, y: 7.507064, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 2.3920822, z: -0.020996094}
+--- !u!54 &1521048436
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521048431}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1523726263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39176,6 +39228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantPot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
+      objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: edd4892a8260cf647b06d2cdff6a9f33, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -39661,8 +39717,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5.7285438, z: 1}
-  m_Center: {x: 0, y: 2.3642719, z: 0}
+  m_Size: {x: 2.588026, y: 7.507064, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 2.3920822, z: -0.020996094}
 --- !u!1 &1574613308
 GameObject:
   m_ObjectHideFlags: 0
@@ -42432,8 +42488,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 6.6612053, z: 1}
-  m_Center: {x: 0, y: 2.8306024, z: 0}
+  m_Size: {x: 2.588026, y: 7.507064, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 2.3920822, z: -0.020996094}
 --- !u!1 &1686192444
 GameObject:
   m_ObjectHideFlags: 0
@@ -51263,11 +51319,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potted Plant 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      propertyPath: m_TagString
+      value: canLiftHeavy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101671457}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101671456}
   m_SourcePrefab: {fileID: 100100000, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+--- !u!1 &2101671455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bcedb15311df5f14b96e330c859f1aa5, type: 3}
+  m_PrefabInstance: {fileID: 2101671454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2101671456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101671455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021050554, y: 0.021050552, z: 0.03610525}
+  m_Center: {x: 0, y: 5.7217354e-17, z: 0.008052626}
+--- !u!54 &2101671457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101671455}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2102205759
 GameObject:
   m_ObjectHideFlags: 0
@@ -51502,8 +51621,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 8.22977, z: 1}
-  m_Center: {x: 0, y: 3.6148853, z: 0}
+  m_Size: {x: 2.588026, y: 10.999605, z: 2.601593}
+  m_Center: {x: 0.02023983, y: 3.170926, z: -0.020996094}
 --- !u!1 &2112120199
 GameObject:
   m_ObjectHideFlags: 0
@@ -52168,6 +52287,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f81aa5f024c0904992759cd00f0e226, type: 3}
+--- !u!1001 &2902048230163447043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.48403
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.87984
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.61589
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813538909554401458, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586838990315764232, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
+      propertyPath: m_Name
+      value: Potted Plant 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68df96527e56ecf4b95cfaac0caa6119, type: 3}
 --- !u!1001 &2964027567943257283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52646,7 +52822,7 @@ SceneRoots:
   - {fileID: 582345209307791803}
   - {fileID: 146503070}
   - {fileID: 2101671454}
-  - {fileID: 1085208713}
+  - {fileID: 2902048230163447043}
   - {fileID: 888839159}
   - {fileID: 969609348}
   - {fileID: 1003731623}
