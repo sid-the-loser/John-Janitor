@@ -12,8 +12,7 @@ public class Level1 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
     [SerializeField] private TextMeshProUGUI enemyCount;
-
-    private GameObject _playerObject;
+    [SerializeField] private GameObject _playerObject;
 
     private ElevatorBehaviour _elevator;
 
@@ -36,7 +35,6 @@ public class Level1 : MonoBehaviour
 
     private void Start()
     {
-        _playerObject = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
         _playerStats = _playerObject.GetComponent<StatsBehaviour>();
         _popUpManager = GameObject.FindObjectOfType<PopUpManager>();
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
