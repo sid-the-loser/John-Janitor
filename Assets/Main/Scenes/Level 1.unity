@@ -7047,6 +7047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
       value: 0
@@ -11247,7 +11251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -14971,6 +14975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
       value: 0
@@ -15206,6 +15214,10 @@ PrefabInstance:
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Name
       value: Spot Light (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -15694,6 +15706,10 @@ PrefabInstance:
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Name
       value: Spot Light (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -17608,7 +17624,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -22943,7 +22959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -24049,6 +24065,10 @@ PrefabInstance:
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Name
       value: Spot Light (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -26528,6 +26548,10 @@ PrefabInstance:
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Name
       value: Spot Light (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -31553,7 +31577,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -35397,7 +35421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.0999756, y: 0}
+  m_AnchoredPosition: {x: -5.1000977, y: 0}
   m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296145022
@@ -46811,6 +46835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Range
       value: 7.77
@@ -47410,7 +47438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
@@ -48651,6 +48679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Type
       value: 0
@@ -48968,6 +49000,10 @@ PrefabInstance:
     - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Name
       value: Spot Light (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933002292412305538, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8371941667111114449, guid: 24dc1a5aaaa95134b937ac4e46a734bf, type: 3}
       propertyPath: m_Range
