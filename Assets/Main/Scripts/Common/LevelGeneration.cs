@@ -27,7 +27,7 @@ namespace Main.Scripts.Common
 
         void Update()
         {
-            enemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            enemyCounter = EnemyBase.InSceneCount;
 
             if (PlayerIsNearEndOfCurrentLevel())
             {
@@ -38,8 +38,8 @@ namespace Main.Scripts.Common
 
         bool PlayerIsNearEndOfCurrentLevel()
         {
-            bool enemyCheck = false;
-            if (enemyCounter <= 1) { enemyCheck = true;}
+            bool enemyCheck = enemyCounter <= 1;
+            
             return enemyCheck;
         }
 

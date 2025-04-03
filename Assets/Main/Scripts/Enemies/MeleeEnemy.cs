@@ -18,7 +18,12 @@ public class MeleeEnemy : EnemyBase
     private StatsBehaviour stats;
 
     private bool primed;
-    
+
+    private void Awake()
+    {
+        OnWake();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();

@@ -24,9 +24,16 @@ public class EnemyBase : MonoBehaviour
     
     protected static GameObject PlayerObject;
     
+    public static int InSceneCount;
+    
     protected States CurrentState = States.Wander;
     
     protected bool MovingTriggered = false;
+
+    protected void OnWake()
+    {
+        InSceneCount++;
+    }
 
     protected void OnStart()
     {
@@ -55,5 +62,10 @@ public class EnemyBase : MonoBehaviour
             Agent.SetDestination(TargetPosition);
             pastTargetPosition = TargetPosition;
         }
+    }
+
+    protected void OnDestroy()
+    {
+        InSceneCount--;
     }
 }
