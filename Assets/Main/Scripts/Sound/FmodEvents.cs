@@ -5,6 +5,7 @@ namespace Sound.Scripts.Sound
 {
     public class FmodEvents : MonoBehaviour
     {
+        
         [field: Header("Music")]
         [field: SerializeField] public EventReference Music { get; private set; }
         [field: SerializeField] public EventReference ElevatorMusic { get; private set; }

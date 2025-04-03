@@ -9,8 +9,8 @@ namespace Main.Scripts
     {
         public void OnPointerEnter(PointerEventData eventData)
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
             eventData.selectedObject = gameObject;
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         }
         
     }

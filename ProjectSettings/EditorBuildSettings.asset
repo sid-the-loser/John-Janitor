@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main/Scenes/DeathScene.unity
     guid: 88548a26b1df29d44a66166ed81fd363
+  - enabled: 1
+    path: Assets/Main/Scenes/Harrish2/AltLevels/Level 2 H.unity
+    guid: 71323124646cbf447ad40876fb62572e
   m_configObjects: {}

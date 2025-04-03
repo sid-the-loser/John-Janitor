@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Main.Scripts.Common;
@@ -8,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Level1 : MonoBehaviour
+public class Level2 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
     [SerializeField] private TextMeshProUGUI enemyCount;
@@ -112,7 +111,7 @@ public class Level1 : MonoBehaviour
         Debug.Log("Level Transition");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        GlobalVariables.NextLevelIndex = 4;
+        GlobalVariables.NextLevelIndex = 0;
         SceneManager.LoadScene(2);
     }
 

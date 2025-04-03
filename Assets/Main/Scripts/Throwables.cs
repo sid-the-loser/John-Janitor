@@ -16,12 +16,15 @@ public class Throwables : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (this.CompareTag("canLiftHeavy"))
+            if (CompareTag("canLiftHeavy"))
             { 
-                if (rb.velocity.magnitude > 6)
+                if (rb != null)
                 {
-                    other.gameObject.GetComponent<StatsBehaviour>().DamageHealth(2);
-                    Destroy(this.gameObject);
+                    if (rb.velocity.magnitude > 6)
+                    {
+                        other.gameObject.GetComponent<StatsBehaviour>().DamageHealth(2);
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

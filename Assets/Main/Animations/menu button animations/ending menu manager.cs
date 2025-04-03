@@ -126,29 +126,30 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardLeft()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     public void SelectedCardMiddle()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     public void SelectedCardRight()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     private void ChangeStats(string pickedOption)
@@ -195,9 +196,8 @@ public class endingmenumanager : MonoBehaviour
 
     public void ShowCards()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
-
         StartCoroutine(TimedCard());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     IEnumerator TimedCard()
@@ -214,7 +214,7 @@ public class endingmenumanager : MonoBehaviour
         SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
     }
 
-    void LoadNextLevel()
+    /*void LoadNextLevel()
     {
         Scene newScene = SceneManager.CreateScene("Level_" + levelIndex);
         SceneManager.SetActiveScene(newScene);
@@ -227,7 +227,7 @@ public class endingmenumanager : MonoBehaviour
         }
 
         GlobalVariables.NextLevelIndex++;
-    }
+    }*/
 
     private int RandomLevelGrabber()
     {
@@ -236,14 +236,11 @@ public class endingmenumanager : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        levelIndex = GlobalVariables.NextLevelIndex;
-        Level1._levelPassed = false;
-        DeactivateScene("Level Transition Scene");
-        LoadNextLevel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
     }
-    public static void DeactivateScene(string sceneName)
+    /*public static void DeactivateScene(string sceneName)
     {
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (scene.isLoaded)
@@ -254,9 +251,9 @@ public class endingmenumanager : MonoBehaviour
                 obj.SetActive(false);
             }
         }
-    }
+    }*/
 
-    public static void ActivateScene(string sceneName)
+    /*public static void ActivateScene(string sceneName)
     {
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (scene.isLoaded)
@@ -267,5 +264,5 @@ public class endingmenumanager : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-    }
+    }*/
 }

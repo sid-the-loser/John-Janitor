@@ -36,8 +36,8 @@ namespace Udey.Scripts
 
         public void OnPointerEnter(PointerEventData eventData) //Handles the event when the pointer enters the card's area.
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
             eventData.selectedObject = gameObject;
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsHover, transform.position);
         }
 
         public void OnPointerExit(PointerEventData eventData) //Called when the pointer exits the UI element.

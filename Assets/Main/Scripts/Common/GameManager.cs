@@ -82,8 +82,8 @@ namespace Main.Scripts.Common
                 3 => "The Enemies Muscle Relax",
                 4 => "The Enemies Become Nimble",
                 5 => "The Enemies Arms Grow longer",
-                6 => "Not Added Yet",
-                7 => "The Enemies Grow Harder",
+                6 => "No Effects",
+                7 => "The Enemies Grow Tougher",
                 8 => "The Enemies Become Agile",
                 9 => "The Enemies Feel Lucky",
                 10 => "The Enemies Aims Better",
@@ -100,7 +100,7 @@ namespace Main.Scripts.Common
                 3 => "Increase Enemy Attack Speed",
                 4 => "Increase Enemy Movement Speed",
                 5 => "Increase Enemy Attack Range",
-                6 => "Not Added Yet",
+                6 => "No Effects For Next Level",
                 7 => "Increase Enemy Defence",
                 8 => "Increase Enemy Dodge Chance",
                 9 => "Increase Enemy Critical Chance",
@@ -152,7 +152,7 @@ namespace Main.Scripts.Common
                 case "Increase Enemy Attack Range":
                     GlobalVariables.EnemyAttRange *= 1.15f;
                     break;
-                case "Not Added Yet":
+                case "No Effects":
                     Debug.Log("Not Added Yet");
                     break;
                 case "Increase Enemy Defence":

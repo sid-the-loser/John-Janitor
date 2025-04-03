@@ -10,7 +10,7 @@ namespace Main.Scripts.Common
         public static float EnemyBaseDamage { get; set; }
         public static float EnemyBaseHpRegen { get; set; }
         public static float EnemyAttSpeed { get; set; }
-        public static float EnemyMoveSpeed = 3.0f; // TODO:setup get set please
+        public static float EnemyMoveSpeed { get; set; }
         public static float EnemyAttRange { get; set; }
         public static float EnemyBaseDefense { get; set; }
         public static float EnemyDodgeChance { get; set; }
