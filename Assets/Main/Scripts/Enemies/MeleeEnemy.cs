@@ -18,7 +18,12 @@ public class MeleeEnemy : EnemyBase
     private StatsBehaviour stats;
 
     private bool primed;
-    
+
+    private void Awake()
+    {
+        OnWake();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,8 +35,8 @@ public class MeleeEnemy : EnemyBase
     {
         if (stats.GetIsDead())
         {
-            Destroy(gameObject);
             Combo.ComboIncrease();
+            Destroy(gameObject);
         }
         
         if (CurrentState == States.Moving)
@@ -62,7 +67,7 @@ public class MeleeEnemy : EnemyBase
                 PlayerObject.GetComponent<StatsBehaviour>().DamageHealth(stats.GetAttackDamage());
                 Combo.ComboReset();
             }
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
             
     }

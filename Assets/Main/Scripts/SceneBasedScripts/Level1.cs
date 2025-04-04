@@ -11,9 +11,9 @@ using UnityEngine.UI;
 public class Level1 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
+    [SerializeField] private Image almostDeadImage;
     [SerializeField] private TextMeshProUGUI enemyCount;
-
-    private GameObject _playerObject;
+    [SerializeField] private GameObject _playerObject;
 
     private ElevatorBehaviour _elevator;
 
@@ -36,7 +36,6 @@ public class Level1 : MonoBehaviour
 
     private void Start()
     {
-        _playerObject = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
         _playerStats = _playerObject.GetComponent<StatsBehaviour>();
         _popUpManager = GameObject.FindObjectOfType<PopUpManager>();
         _elevator = GameObject.FindObjectOfType<ElevatorBehaviour>();
@@ -88,6 +87,11 @@ public class Level1 : MonoBehaviour
         {
             StartCoroutine( Level1PassedCheck());
         }
+
+        if (30.0f > (_playerStats.GetHealth() / _playerStats.GetMaxHealth())*100)
+        {
+            almostDeadImage.color = new Color(1f, 1f, 1f, 0.1f);
+        }
     }
 
     private IEnumerator Level1PassedCheck()
@@ -114,8 +118,7 @@ public class Level1 : MonoBehaviour
         Debug.Log("Level Transition");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        GlobalVariables.NextLevelIndex = 0;
-        endingmenumanager.ActivateScene("Level Transition Scene");
+        GlobalVariables.NextLevelIndex = 4;
         SceneManager.LoadScene(2);
     }
 

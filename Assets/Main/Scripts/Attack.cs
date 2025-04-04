@@ -54,8 +54,8 @@ namespace Udey.Scripts
         private IEnumerator FakeAnimation()
         {
             // image.transform.Rotate(0, 0, 25); // Rotate image to the left by 45 degrees
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Swing, this.transform.position);
             yield return new WaitForSeconds(0.2f); // Wait for 0.1 seconds
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Swing, this.transform.position);
             // image.transform.Rotate(0, 0, -25); // Rotate image back to normal
         }
 

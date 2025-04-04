@@ -10,6 +10,7 @@ namespace Main.Scripts.Sound
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance { get; private set; }
+        private static bool ran;
         
         private GameObject _player;
         private EventInstance _musicEventInstance;
@@ -17,11 +18,19 @@ namespace Main.Scripts.Sound
         private void Awake()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
-            InitializeMusic(FmodEvents.Instance.ElevatorMusic);
             Instance = this;
             if (Instance == null)
             {
-                Debug.LogError("More then one audio manager");
+                Debug.LogError("More than one audio manager");
+            }
+        }
+
+        private void Start()
+        {
+            if (!ran)
+            {
+                InitializeMusic(FmodEvents.Instance.ElevatorMusic);
+                ran = true;
             }
         }
 

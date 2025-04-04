@@ -92,9 +92,9 @@ public class endingmenumanager : MonoBehaviour
             2 => "The Enemies Blood Boils",
             3 => "The Enemies Muscle Relax",
             4 => "The Enemies Become Nimble",
-            5 => "The Enemies Arms Grow longer",
-            6 => "Not Added Yet",
-            7 => "The Enemies Grow Harder",
+            5 => "The Enemies Arms Grow Longer",
+            6 => "No Effect",
+            7 => "The Enemies Grow Tougher",
             8 => "The Enemies Become Agile",
             9 => "The Enemies Feel Lucky",
             10 => "The Enemies Aims Better",
@@ -112,7 +112,7 @@ public class endingmenumanager : MonoBehaviour
             3 => "Increase Enemy Attack Speed",
             4 => "Increase Enemy Movement Speed",
             5 => "Increase Enemy Attack Range",
-            6 => "Not Added Yet",
+            6 => "No Effect",
             7 => "Increase Enemy Defence",
             8 => "Increase Enemy Dodge Chance",
             9 => "Increase Enemy Critical Chance",
@@ -126,29 +126,30 @@ public class endingmenumanager : MonoBehaviour
 
     public void SelectedCardLeft()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[0].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     public void SelectedCardMiddle()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+        
         ChangeStats(descriptions[1].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     public void SelectedCardRight()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         ChangeStats(descriptions[2].text);
         DeactivateCardDropDown();
         GoToNextLevel();
         //StartCoroutine(startDialogue());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     private void ChangeStats(string pickedOption)
@@ -195,9 +196,8 @@ public class endingmenumanager : MonoBehaviour
 
     public void ShowCards()
     {
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
-
         StartCoroutine(TimedCard());
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
     }
 
     IEnumerator TimedCard()
@@ -214,7 +214,7 @@ public class endingmenumanager : MonoBehaviour
         SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
     }
 
-    void LoadNextLevel()
+    /*void LoadNextLevel()
     {
         Scene newScene = SceneManager.CreateScene("Level_" + levelIndex);
         SceneManager.SetActiveScene(newScene);
@@ -227,7 +227,7 @@ public class endingmenumanager : MonoBehaviour
         }
 
         GlobalVariables.NextLevelIndex++;
-    }
+    }*/
 
     private int RandomLevelGrabber()
     {
@@ -236,14 +236,11 @@ public class endingmenumanager : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        levelIndex = GlobalVariables.NextLevelIndex;
-        Level1._levelPassed = false;
-        DeactivateScene("Level Transition Scene");
-        LoadNextLevel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(GlobalVariables.NextLevelIndex);
     }
-    public static void DeactivateScene(string sceneName)
+    /*public static void DeactivateScene(string sceneName)
     {
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (scene.isLoaded)
@@ -254,9 +251,9 @@ public class endingmenumanager : MonoBehaviour
                 obj.SetActive(false);
             }
         }
-    }
+    }*/
 
-    public static void ActivateScene(string sceneName)
+    /*public static void ActivateScene(string sceneName)
     {
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (scene.isLoaded)
@@ -267,5 +264,5 @@ public class endingmenumanager : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-    }
+    }*/
 }

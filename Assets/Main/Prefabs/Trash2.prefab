@@ -485,7 +485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionTriggerDistance: 20
-  Agent: {fileID: 5925728595651174337}
+  agent: {fileID: 5925728595651174337}
+  explosionEffect: {fileID: 7544558986319817871, guid: e277bef6854476640ab41efc83d714dc, type: 3}
+  secondsToDoExplodeEffect: 2
   stoppingDistance: 3
   explosionRadius: 6.5
 --- !u!114 &3641097988448658984

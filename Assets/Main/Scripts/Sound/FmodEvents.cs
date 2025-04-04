@@ -5,6 +5,7 @@ namespace Sound.Scripts.Sound
 {
     public class FmodEvents : MonoBehaviour
     {
+        
         [field: Header("Music")]
         [field: SerializeField] public EventReference Music { get; private set; }
         [field: SerializeField] public EventReference ElevatorMusic { get; private set; }
@@ -41,7 +42,7 @@ namespace Sound.Scripts.Sound
             Instance = this;
             if (Instance == null)
             {
-                Debug.LogError("More then 1 instance");
+                Debug.LogError("More than 1 instance");
             }
         }
     }

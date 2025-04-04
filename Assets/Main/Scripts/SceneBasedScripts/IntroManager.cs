@@ -19,6 +19,8 @@ public class IntroManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         MMenuPhase0.SetActive(true);
         MMenuPhase1.SetActive(false);
     }
@@ -68,7 +70,7 @@ public class IntroManager : MonoBehaviour
         
         yield return new WaitForSeconds(2.2f);
         
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(1);
         
     }
 
