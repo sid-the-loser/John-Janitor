@@ -90,7 +90,7 @@ public class Level1 : MonoBehaviour
 
         if (30.0f > (_playerStats.GetHealth() / _playerStats.GetMaxHealth())*100)
         {
-            almostDeadImage.color = new Color(1f, 1f, 1f, 0.2f);
+            almostDeadImage.color = new Color(1f, 1f, 1f, 0.1f);
         }
     }
 
