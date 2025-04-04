@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class Level2 : MonoBehaviour
 {
     [SerializeField] private Image dyingImage;
+    [SerializeField] private Image almostDeadImage;
     [SerializeField] private TextMeshProUGUI enemyCount;
     [SerializeField] private GameObject _playerObject;
 
@@ -84,6 +85,11 @@ public class Level2 : MonoBehaviour
         if (!_levelPassed)
         {
             StartCoroutine( Level1PassedCheck());
+        }
+        
+        if (30.0f > (_playerStats.GetHealth() / _playerStats.GetMaxHealth())*100)
+        {
+            almostDeadImage.color = new Color(1f, 1f, 1f, 0.2f);
         }
     }
 

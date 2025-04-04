@@ -88,7 +88,7 @@ public class Level1 : MonoBehaviour
             StartCoroutine( Level1PassedCheck());
         }
 
-        if (30.0f < (_playerStats.GetHealth() / _playerStats.GetMaxHealth())*100)
+        if (30.0f > (_playerStats.GetHealth() / _playerStats.GetMaxHealth())*100)
         {
             almostDeadImage.color = new Color(1f, 1f, 1f, 0.2f);
         }
