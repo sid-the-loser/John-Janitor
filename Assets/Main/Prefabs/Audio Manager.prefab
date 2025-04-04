@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7091413130172886751}
   - component: {fileID: 4826621616666932122}
-  - component: {fileID: 130883399687897634}
   m_Layer: 0
   m_Name: FmodEvent
   m_TagString: Untagged
@@ -162,18 +161,6 @@ MonoBehaviour:
       Data3: -270394694
       Data4: -762123829
     Path: event:/SFX/Card Selection/Caed Selection
---- !u!114 &130883399687897634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8504740416249837917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec3876bd97a37449840cccd3006cdf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9211120946388429901
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4354129639850509730}
   - component: {fileID: 4976449895877721144}
-  - component: {fileID: 224917761806253549}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -218,17 +204,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f11ca701b16ae04fbbc8807fb2ff0c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &224917761806253549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9211120946388429901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec3876bd97a37449840cccd3006cdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

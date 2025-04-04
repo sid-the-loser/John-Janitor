@@ -42,7 +42,7 @@ namespace Sound.Scripts.Sound
             Instance = this;
             if (Instance == null)
             {
-                Debug.LogError("More then 1 instance");
+                Debug.LogError("More than 1 instance");
             }
         }
     }

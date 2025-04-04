@@ -114,21 +114,24 @@ namespace Main.Scripts.Common
 
         public void SelectedCardLeft()
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+            
             ChangeStats(descriptions[0].text);
             DeactivateCardDropDown();
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         }
         public void SelectedCardMiddle()
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+            
             ChangeStats(descriptions[1].text);
             DeactivateCardDropDown();
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         }
         public void SelectedCardRight()
         {
-            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
+           
             ChangeStats(descriptions[2].text);
             DeactivateCardDropDown();
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.CardsSelect, transform.position);
         }
         private void ChangeStats(string pickedOption)
         {

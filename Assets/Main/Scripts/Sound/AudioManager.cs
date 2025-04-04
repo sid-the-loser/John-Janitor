@@ -21,7 +21,7 @@ namespace Main.Scripts.Sound
             Instance = this;
             if (Instance == null)
             {
-                Debug.LogError("More then one audio manager");
+                Debug.LogError("More than one audio manager");
             }
         }
 
