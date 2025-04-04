@@ -1,6 +1,6 @@
 # John-Janitor
 
-## Citations
+## Reference
  
 "Vending machine - 7 Down" (https://skfb.ly/6VRzX) by tboiston is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
